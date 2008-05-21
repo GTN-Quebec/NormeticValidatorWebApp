@@ -378,6 +378,10 @@ public class Validator extends AbstractPageBean {
             return (null);
         }
         String uploadedFileName = uploadedFile.getOriginalName();
+        if (uploadedFileName == null || uploadedFileName.length() < 2) {
+            error( bundle.getString("noFileUploaded"));
+            return (null);
+        }
       
         // Some browsers return complete path name, some don't
         // Make sure we only have the file name        
@@ -411,6 +415,7 @@ public class Validator extends AbstractPageBean {
                     lomString.write("\n");
                 }
 
+                getSessionBean1().setDirectInputLomString( lomString.toString() );
                 getSessionBean1().setValidatedLomString( lomString.toString() );
 
                 try {
