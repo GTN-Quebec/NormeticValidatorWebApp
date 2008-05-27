@@ -15,11 +15,19 @@
                     <webuijsf:hyperlink binding="#{Footer_LomVS.hyperlinkCopyright}" id="hyperlinkCopyright"
                         style="color: white; font-size: 14px; font-weight: bold; margin-left: 6px" target="_blank" text="#{msg.rightsLink}" url="#{msg.rightsUrl}"/>
                 </webuijsf:panelLayout>
+                <webuijsf:panelLayout id="layoutPanelLicense" panelLayout="flow" style="width: 100%; height: 100%;">
+                    <webuijsf:staticText id="staticTextLicense"
+                        style="color: white; font-family: 'Arial','Helvetica',sans-serif; font-size: 14px; font-weight: normal" text="#{msg.license}"/>
+                    <webuijsf:hyperlink id="hyperlinkLicense" style="color: white; font-size: 14px; font-weight: bold; margin-left: 6px" target="_blank"
+                        text="#{msg.licenseLink}" url="#{msg.licenseUrl}"/>
+                    <webuijsf:imageHyperlink align="bottom" height="62" id="imageHyperlinkLicense" imageURL="http://i.creativecommons.org/l/LGPL/2.1/88x62.png"
+                        rendered="false" target="_blank" url="#{msg.licenseUrl}" width="88"/>
+                </webuijsf:panelLayout>
                 <webuijsf:panelLayout id="layoutPanelSupport" panelLayout="flow" style="height: 100%; width: 100%">
                     <webuijsf:staticText binding="#{Footer_LomVS.staticTextSupport}" id="staticTextSupport"
                         style="color: white; font-family: Arial,Helvetica,sans-serif; font-size: 14px; font-weight: normal" text="#{msg.support}"/>
                     <webuijsf:hyperlink binding="#{Footer_LomVS.hyperlinkSupport}" id="hyperlinkSupport"
-                        style="color: white; font-size: 14px; font-weight: normal; margin-left: 6px" text="#{msg.supportLink}" url="#{msg.supportUrl}"/>
+                        style="color: white; font-size: 14px; font-weight: bold; margin-left: 6px" text="#{msg.supportLink}" url="#{msg.supportUrl}"/>
                 </webuijsf:panelLayout>
             </h:panelGrid>
             <h:panelGrid id="gridPanelRight" style="width: 100%; height: 100%;">
@@ -28,6 +36,9 @@
                 </webuijsf:panelLayout>
                 <webuijsf:panelLayout id="layoutPanelFiller" panelLayout="flow" style="width: 100%; height: 100%;">
                     <webuijsf:staticText escape="false" id="staticTextFiller" text="&amp;nbsp;"/>
+                </webuijsf:panelLayout>
+                <webuijsf:panelLayout id="layoutPanelFiller1" panelLayout="flow" style="width: 100%; height: 100%;">
+                    <webuijsf:staticText escape="false" id="staticTextFiller1" text="&amp;nbsp;"/>
                 </webuijsf:panelLayout>
             </h:panelGrid>
         </h:panelGrid>
