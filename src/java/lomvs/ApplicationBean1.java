@@ -6,27 +6,9 @@
 package lomvs;
 
 import com.sun.rave.web.ui.appbase.AbstractApplicationBean;
-import java.io.File;
-import java.io.FileInputStream;
 import java.util.Locale;
-import java.util.Map;
 import javax.faces.FacesException;
-import javax.faces.application.Application;
 import javax.faces.context.FacesContext;
-import javax.servlet.ServletContext;
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.URIResolver;
-import javax.xml.transform.sax.SAXSource;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
-import net.sf.saxon.Configuration;
-import net.sf.saxon.FeatureKeys;
-import net.sf.saxon.PreparedStylesheet;
-import net.sf.saxon.TransformerFactoryImpl;
-import org.xml.sax.InputSource;
-import org.xml.sax.XMLReader;
 
 /**
  * <p>Application scope data bean for your application.  Create properties

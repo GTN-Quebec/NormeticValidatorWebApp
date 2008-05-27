@@ -7,7 +7,6 @@
 package lomvs;
 
 import com.sun.rave.web.ui.appbase.AbstractFragmentBean;
-import com.sun.webui.jsf.component.StaticText;
 import javax.faces.FacesException;
 import javax.faces.component.html.HtmlPanelGrid;
 

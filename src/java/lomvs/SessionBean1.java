@@ -10,10 +10,9 @@ import java.util.ResourceBundle;
 import com.sun.rave.web.ui.appbase.AbstractSessionBean;
 import com.sun.data.provider.impl.ObjectListDataProvider;
 import javax.faces.FacesException;
-
 import ca.licef.validator.ValidationIssue;
 import ca.licef.validator.ValidationReport;
-import javax.faces.context.FacesContext;
+
 
 /**
  * <p>Session scope data bean for your application.  Create properties

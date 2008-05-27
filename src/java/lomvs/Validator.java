@@ -413,7 +413,7 @@ public class Validator extends AbstractPageBean {
 
         String uploadedFileType = uploadedFile.getContentType();
 
-        if (uploadedFileType.equals("text/xml") || uploadedFileType.equals("application/x-xml")) {
+        if (uploadedFileType.equals("text/xml") || uploadedFileType.equals("application/x-xml") || uploadedFileType.equals("application/xml") ) {
             try {
                 InputStreamReader reader = new InputStreamReader(uploadedFile.getInputStream(), "UTF-8");
                 BufferedReader lomReader = new BufferedReader(reader);
