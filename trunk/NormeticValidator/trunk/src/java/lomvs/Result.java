@@ -6,10 +6,7 @@
 package lomvs;
 
 import com.sun.webui.jsf.component.Table;
-import java.util.Locale;
 import com.sun.webui.jsf.component.Label;
-import com.sun.webui.jsf.component.MessageGroup;
-import com.sun.webui.jsf.component.TextArea;
 import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import java.io.*;
 import java.net.*;
@@ -20,8 +17,6 @@ import javax.xml.transform.stream.*;
 import javax.xml.transform.dom.*;
 import org.w3c.dom.*;
 import org.xml.sax.*;
-
-
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Body;
 import com.sun.webui.jsf.component.Button;
@@ -33,7 +28,7 @@ import com.sun.webui.jsf.component.Page;
 import com.sun.webui.jsf.component.StaticText;
 import javax.faces.FacesException;
 import javax.faces.component.html.HtmlPanelGrid;
-import javax.servlet.ServletContext;
+
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
