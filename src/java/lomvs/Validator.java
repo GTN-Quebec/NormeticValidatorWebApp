@@ -370,9 +370,19 @@ public class Validator extends AbstractPageBean {
     }
 
     public String uploadFileButton_action() {
+        String strIsDebug = FacesContext.getCurrentInstance().getExternalContext().getInitParameter( "isDebug" );
+        boolean isDebug = ( "true".equals( strIsDebug ) );
+
         ResourceBundle bundle = ResourceBundle.getBundle( "lomvs.Bundle", getApplicationBean1().getLocale() );
 
         UploadedFile uploadedFile = fileUpload1.getUploadedFile();
+
+        // Temporary trace to debug FileUploadException : Processing of multipart/form-data request failed. Read timed out. - FB
+        if( isDebug ) {
+            System.out.println( "uploadFileButton_action uploadedFile=" + uploadedFile + 
+                " filename=" + ( uploadedFile == null ? "n/a" : uploadedFile.getOriginalName() ) ); 
+        }
+
         if (uploadedFile == null) {
             error( bundle.getString("noFileUploaded"));
             return (null);
