@@ -7,7 +7,6 @@ package lomvs;
 
 import com.sun.webui.jsf.component.Table;
 import java.util.Locale;
-import java.util.ResourceBundle;
 import com.sun.webui.jsf.component.Label;
 import com.sun.webui.jsf.component.MessageGroup;
 import com.sun.webui.jsf.component.TextArea;

@@ -9,7 +9,6 @@ import com.sun.rave.web.ui.appbase.AbstractApplicationBean;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Locale;
-import java.util.ResourceBundle;
 import java.util.Map;
 import javax.faces.FacesException;
 import javax.faces.application.Application;
