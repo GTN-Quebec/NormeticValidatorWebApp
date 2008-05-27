@@ -9,25 +9,21 @@ public class ErrorEntry implements Serializable {
 
     public ErrorEntry( ValidationIssue error, ResourceBundle bundle ) {
         this.error = error;
-        this.bundle = bundle;
-    }
-
-    public String getSeverityIcon() {
-        if( error.getSeverity() == ValidationIssue.Severity.WARNING )
-            return( "ALERT_DEGRADED_LARGE" );
-        else
-            return( "ALERT_ERROR_LARGE" );
-    }
-
-    public String getLocation() {
+        this.severityIcon = ( error.getSeverity() == ValidationIssue.Severity.WARNING ? "ALERT_DEGRADED_LARGE" : "ALERT_ERROR_LARGE" );
         if( error.getLine() != -1 && error.getColumn() != -1 ) {
             MessageFormat formatter = new MessageFormat( bundle.getString( "errorLocation" ) );
             String line = error.getLine() + "";
             String column = error.getColumn() + "";
-            return( formatter.format( new String[] { line, column } ) );
+            this.location = formatter.format( new String[] { line, column } );
         }
-        else
-            return( null );
+    }
+
+    public String getSeverityIcon() {
+        return( severityIcon );
+    }
+
+    public String getLocation() {
+        return( location );
     }
 
     public String getMessage() {
@@ -42,7 +38,8 @@ public class ErrorEntry implements Serializable {
         return( error.getAlternateMessage() != null ? error.getMessage() : null );
     }
 
-    private ResourceBundle bundle;
     private ValidationIssue error;
+    private String severityIcon;
+    private String location;
 
 }

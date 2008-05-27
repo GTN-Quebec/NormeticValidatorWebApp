@@ -9,7 +9,6 @@ import com.sun.rave.web.ui.appbase.AbstractFragmentBean;
 import com.sun.webui.jsf.component.Hyperlink;
 import com.sun.webui.jsf.component.StaticText;
 import java.util.Locale;
-import java.util.ResourceBundle;
 import javax.faces.FacesException;
 import javax.faces.component.html.HtmlPanelGrid;
 
