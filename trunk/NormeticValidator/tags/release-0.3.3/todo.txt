@@ -1,0 +1,18 @@
+Fix bugs mentioned in Claire's document and my answer (TestsLomValidator.doc): c12, c16, c19, c40. 
+Write unitary tests and produce report.
+Write documentation & report : organization, usage (CLI + GUI), installation, possible improvements, actual limitations & justifications.
+
+Optional
+========
+Show version number in the footer.
+Remove ApplicationBean1.  It's used only for locale and we could use context.getViewRoot().getLocale() to get it as mentioned in http://www.laliluna.de/javaserver-faces-message-resource-bundle-tutorial.html
+Make the following warning and blank lines disappear (in Tomcat's log file): 
+Warning: at xsl:stylesheet on line 72 of :
+  Running an XSLT 1.0 stylesheet with an XSLT 2.0 processor
+After clicking the Check button, disable the button and show an animated image to indicate that the validation is in progress.
+Use a center layout?
+Display scope of xml file.
+Display line numbers in xml context.
+Optimize.  Check if it would be possible to allocate less validator and reuse them instead.  Would synchronizing the validate method create an unacceptable bottleneck?  Use profiler maybe.
+Make sure that temporary files are purged.
+Add Tab for validate from url if I have time?
