@@ -379,7 +379,7 @@ public class Validator extends AbstractPageBean {
 
         // Temporary trace to debug FileUploadException : Processing of multipart/form-data request failed. Read timed out. - FB
         if( isDebug ) {
-            System.out.println( "uploadFileButton_action uploadedFile=" + uploadedFile + 
+            System.out.println( "uploadFileButton_action at " + ( new Date() ) + " uploadedFile=" + uploadedFile + 
                 " filename=" + ( uploadedFile == null ? "n/a" : uploadedFile.getOriginalName() ) ); 
         }
 
