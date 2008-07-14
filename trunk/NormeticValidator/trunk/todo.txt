@@ -1,3 +1,13 @@
+Fix NullPointerException in SessionBean1.getVerdictType().  The report is null.  Here is how to reproduce it : 
+0) Set session-timeout to 1 and redeploy/restart Tomcat.
+1) Copy this url into the buffer: http://localhost:8080/NormeticValidator/faces/Result.jsp
+2) Submit an invalid lom
+3) Wait until the session expires
+4) Paste the url into the location bar and go to the page.  
+5) As the session is expired, the report is null.
+When the session is expired, we should present an error page saying so and redirect automatically to form page.  A good article on this topic can be found here (search "expired") : http://www.jroller.com/hasant/category/Java
+
+Some times, when we validate a lom on Firefox 3.0, images and report lines are not displayed.  No exceptions are thrown.  It seems to work fine on other browsers.
 Fix bugs mentioned in Claire's document and my answer (TestsLomValidator.doc): c12, c16, c19, c40. 
 Write unitary tests and produce report.
 Write documentation & report : organization, usage (CLI + GUI), installation, possible improvements, actual limitations & justifications.
