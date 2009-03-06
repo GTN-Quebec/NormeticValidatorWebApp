@@ -37,6 +37,9 @@
                 </library>
                 <library>
                     <file>${file.reference.saxon8.jar}</file>
+                </library>
+                <library>
+                    <file>${file.reference.saxon9.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
