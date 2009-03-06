@@ -14,7 +14,6 @@ Write documentation & report : organization, usage (CLI + GUI), installation, po
 
 Optional
 ========
-Show version number in the footer.
 Remove ApplicationBean1.  It's used only for locale and we could use context.getViewRoot().getLocale() to get it as mentioned in http://www.laliluna.de/javaserver-faces-message-resource-bundle-tutorial.html
 Make the following warning and blank lines disappear (in Tomcat's log file): 
 Warning: at xsl:stylesheet on line 72 of :

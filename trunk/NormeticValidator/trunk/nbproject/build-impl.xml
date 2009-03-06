@@ -505,11 +505,11 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${libs.woodstock-theme-default.classpath}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.libs.woodstock-theme-default.classpath" todir="${dist.ear.dir}"/>
         <copyfiles files="${file.reference.jing.jar}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.file.reference.jing.jar" todir="${dist.ear.dir}"/>
         <copyfiles files="${file.reference.NormeticValidator.jar}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.file.reference.NormeticValidator.jar" todir="${dist.ear.dir}"/>
-        <copyfiles files="${file.reference.saxon8.jar}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.file.reference.saxon8.jar" todir="${dist.ear.dir}"/>
+        <copyfiles files="${file.reference.saxon9.jar}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.file.reference.saxon9.jar" todir="${dist.ear.dir}"/>
         <copyfiles files="${libs.exceptionhandler-runtime.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
         <mkdir dir="${build.web.dir}/META-INF"/>
         <manifest file="${build.web.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Class-Path" value="${manifest.libs.jsf12.classpath} ${manifest.libs.jstl11.classpath} ${manifest.libs.jsf12-support.classpath} ${manifest.libs.woodstock-components.classpath} ${manifest.libs.woodstock-theme-default.classpath} ${manifest.file.reference.jing.jar} ${manifest.file.reference.NormeticValidator.jar} ${manifest.file.reference.saxon8.jar} "/>
+            <attribute name="Class-Path" value="${manifest.libs.jsf12.classpath} ${manifest.libs.jstl11.classpath} ${manifest.libs.jsf12-support.classpath} ${manifest.libs.woodstock-components.classpath} ${manifest.libs.woodstock-theme-default.classpath} ${manifest.file.reference.jing.jar} ${manifest.file.reference.NormeticValidator.jar} ${manifest.file.reference.saxon9.jar} "/>
         </manifest>
     </target>
     <target depends="init" name="library-inclusion-in-archive" unless="dist.ear.dir">
@@ -520,7 +520,7 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${libs.woodstock-theme-default.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.jing.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.NormeticValidator.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.saxon8.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${file.reference.saxon9.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${libs.exceptionhandler-runtime.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
     </target>
     <target depends="init,compile,compile-jsps,-pre-dist,library-inclusion-in-manifest" name="do-ear-dist">
