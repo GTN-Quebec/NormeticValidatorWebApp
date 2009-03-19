@@ -34,6 +34,7 @@ import javax.faces.FacesException;
 import javax.faces.component.html.HtmlPanelGrid;
 
 import ca.licef.validator.NormeticValidator;
+import ca.licef.validator.ValidationReport;
 import javax.faces.event.ValueChangeEvent;
 
 /**
@@ -489,18 +490,19 @@ public class Validator extends AbstractPageBean {
         NormeticValidator validator = new NormeticValidator();
         Locale locale = FacesContext.getCurrentInstance().getApplication().getDefaultLocale();
         validator.setLocale( locale );
-        boolean isValid = validator.validate(lomString);
-        getSessionBean1().setReport(validator.getReport());
+        ValidationReport report = validator.validate(lomString);
+        boolean isValid = ( report.getErrorCount() > 0 || report.getFatalErrorCount() > 0 );
+        getSessionBean1().setReport( report );
        
         if( isDebug ) {
             endTime = new Date();
             long duration = endTime.getTime() - startTime.getTime();
-            System.out.println( validator.getReport().toString() );
+            System.out.println( report.toString() );
             System.out.println( "End of validation.  isValid=" + isValid + " (" + endTime + ")" );
             System.out.println( "=> Time required to perform validation: " + duration + " ms.\n\n" );
         }
 
-        return (isValid);
+        return( isValid );
     }
 
     public void textAreaDirectInput_processValueChange(ValueChangeEvent event) {
