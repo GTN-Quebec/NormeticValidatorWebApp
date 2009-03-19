@@ -73,3 +73,9 @@ table.Tbl_sun4 td, table.Tbl_sun4 th {
 .header_sun4 {
     text-align: left !important;
 }
+
+/* Patch to force style on the textArea where the LOM is shown. */
+[id="form1:textAreaLom_field"] {
+    width: 100%;
+    border: solid 1px gray;
+}

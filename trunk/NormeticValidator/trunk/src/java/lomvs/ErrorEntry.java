@@ -27,7 +27,11 @@ public class ErrorEntry implements Serializable {
     }
 
     public String getMessage() {
-        return( error.getAlternateMessage() != null ? error.getAlternateMessage() : error.getMessage() );
+        StringBuilder str = new StringBuilder();
+        str.append( error.getAlternateMessage() != null ? error.getAlternateMessage() : error.getMessage() );
+        if( error.getExplanation() != null ) 
+            str.append( " " ).append( error.getExplanation() );
+        return( str.toString() );
     }
 
     public String getContext() {
