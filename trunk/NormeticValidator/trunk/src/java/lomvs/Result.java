@@ -5,8 +5,11 @@
  */
 package lomvs;
 
+import com.sun.webui.jsf.component.Hyperlink;
+import com.sun.webui.jsf.component.ImageHyperlink;
 import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.Label;
+import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import java.io.*;
 import java.net.*;
@@ -263,6 +266,69 @@ public class Result extends AbstractPageBean {
 
     public void setTableReportErrors(Table t) {
         this.tableReportErrors = t;
+    }
+    private StaticText staticTextHelp = new StaticText();
+
+    public StaticText getStaticTextHelp() {
+        return staticTextHelp;
+    }
+
+    public void setStaticTextHelp(StaticText st) {
+        this.staticTextHelp = st;
+    }
+    private TableColumn tableColumnHelp = new TableColumn();
+
+    public TableColumn getTableColumnHelp() {
+        return tableColumnHelp;
+    }
+
+    public void setTableColumnHelp(TableColumn tc) {
+        this.tableColumnHelp = tc;
+    }
+    private TableColumn tableColumnLexicalScope = new TableColumn();
+
+    public TableColumn getTableColumnLexicalScope() {
+        return tableColumnLexicalScope;
+    }
+
+    public void setTableColumnLexicalScope(TableColumn tc) {
+        this.tableColumnLexicalScope = tc;
+    }
+    private ImageHyperlink imageHyperlinkLexicalScope = new ImageHyperlink();
+
+    public ImageHyperlink getImageHyperlinkLexicalScope() {
+        return imageHyperlinkLexicalScope;
+    }
+
+    public void setImageHyperlinkLexicalScope(ImageHyperlink ih) {
+        this.imageHyperlinkLexicalScope = ih;
+    }
+    private StaticText staticTextLexicalScope = new StaticText();
+
+    public StaticText getStaticTextLexicalScope() {
+        return staticTextLexicalScope;
+    }
+
+    public void setStaticTextLexicalScope(StaticText st) {
+        this.staticTextLexicalScope = st;
+    }
+    private Hyperlink hyperlinkHelp = new Hyperlink();
+
+    public Hyperlink getHyperlinkHelp() {
+        return hyperlinkHelp;
+    }
+
+    public void setHyperlinkHelp(Hyperlink h) {
+        this.hyperlinkHelp = h;
+    }
+    private ImageHyperlink imageHyperlinkHelp = new ImageHyperlink();
+
+    public ImageHyperlink getImageHyperlinkHelp() {
+        return imageHyperlinkHelp;
+    }
+
+    public void setImageHyperlinkHelp(ImageHyperlink ih) {
+        this.imageHyperlinkHelp = ih;
     }
 
     // </editor-fold>
