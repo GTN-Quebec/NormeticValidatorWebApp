@@ -39,7 +39,8 @@ public class ErrorEntry implements Serializable {
     }
 
     public String getDetails() {
-        return( error.getAlternateMessage() != null ? error.getMessage() : null );
+        //return( error.getAlternateMessage() != null ? error.getMessage() : null );
+        return( null );
     }
 
     private ValidationIssue error;
