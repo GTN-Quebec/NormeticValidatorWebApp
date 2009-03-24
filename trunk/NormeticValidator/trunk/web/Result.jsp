@@ -18,7 +18,7 @@
                         <div style="">
                             <jsp:directive.include file="Header_LomVS.jspf"/>
                         </div>
-                        <h:panelGrid binding="#{Result.mainPanel2}" cellspacing="20" id="mainPanel2" style="" width="100%">
+                        <h:panelGrid binding="#{Result.mainPanel2}" cellspacing="20" id="mainPanel2" style="margin-bottom: 30px;" width="100%">
                             <h:panelGrid binding="#{Result.gridPaneGeneralInfo}" columns="2" id="gridPaneGeneralInfo" rendered="false" style="border-style: ridge; border-color: gray; background-color: rgb(204, 204, 204); height: 192px; width: 100%">
                                 <webuijsf:label binding="#{Result.label5}" id="label5" style="font-size: 14px" text="Result"/>
                                 <webuijsf:staticText binding="#{Result.staticText7}" id="staticText7"/>
@@ -36,7 +36,7 @@
                             <webuijsf:textArea columns="200" id="textAreaLom" readOnly="true" rows="20" style="" text="#{SessionBean1.validatedLomString}"/>
                             <webuijsf:alert detail="#{SessionBean1.verdictDetail}" id="alertVerdict" style="font-size: 18px"
                                 summary="#{SessionBean1.verdictSummary}" type="#{SessionBean1.verdictType}"/>
-                            <webuijsf:table augmentTitle="false" binding="#{Result.tableReportErrors}" cellPadding="10" id="tableReportErrors"
+                            <webuijsf:table binding="#{Result.tableReportErrors}" cellPadding="10" id="tableReportErrors"
                                 rendered="#{SessionBean1.report.issueCount &gt; 0}" title="#{msg.errorTableTitle}" width="100%">
                                 <webuijsf:tableRowGroup id="tableRowGroupReportErrors" rows="15" sourceData="#{SessionBean1.issues}" sourceVar="currentRow" valign="top">
                                     <webuijsf:tableColumn id="tableColumnErrorSeverity" width="200">
