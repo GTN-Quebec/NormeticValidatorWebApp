@@ -29,8 +29,8 @@ public class ErrorEntry implements Serializable {
     public String getMessage() {
         StringBuilder str = new StringBuilder();
         str.append( error.getAlternateMessage() != null ? error.getAlternateMessage() : error.getMessage() );
-        if( error.getExplanation() != null ) 
-            str.append( " " ).append( error.getExplanation() );
+        //if( error.getExplanation() != null ) 
+        //    str.append( " " ).append( error.getExplanation() );
         return( str.toString() );
     }
 
@@ -40,7 +40,32 @@ public class ErrorEntry implements Serializable {
 
     public String getDetails() {
         //return( error.getAlternateMessage() != null ? error.getMessage() : null );
-        return( null );
+        //return( null );
+        return( error.getExplanation() );
+    }
+
+    public String getHelpReference() {
+        return( "LD Catégorie 1 v1.2" );
+    }
+
+    public String getHelpReferenceLink() {
+        return( "http://java.sun.com" );
+    }
+
+    public boolean isHelpReferenceAvailable() {
+        return( true );
+    }
+
+    public String getLexicalScopeReference() {
+        return( "ISO 10646-1" );
+    }
+
+    public String getLexicalScopeReferenceLink() {
+        return( "http://www.vim.org" );
+    }
+
+    public boolean isLexicalScopeReferenceAvailable() {
+        return( true );
     }
 
     private ValidationIssue error;
