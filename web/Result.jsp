@@ -37,13 +37,13 @@
                             <webuijsf:alert detail="#{SessionBean1.verdictDetail}" id="alertVerdict" style="font-size: 18px"
                                 summary="#{SessionBean1.verdictSummary}" type="#{SessionBean1.verdictType}"/>
                             <webuijsf:table binding="#{Result.tableReportErrors}" cellPadding="10" id="tableReportErrors"
-                                rendered="#{SessionBean1.report.issueCount &gt; 0}" title="#{msg.errorTableTitle}" width="800">
+                                rendered="#{SessionBean1.report.issueCount &gt; 0}" style="width: 95%;" title="#{msg.errorTableTitle}">
                                 <webuijsf:tableRowGroup id="tableRowGroupReportErrors" rows="15" sourceData="#{SessionBean1.issues}" sourceVar="currentRow" valign="top">
-                                    <webuijsf:tableColumn id="tableColumnErrorSeverity" width="200">
+                                    <webuijsf:tableColumn id="tableColumnErrorSeverity" valign="middle">
                                         <webuijsf:image align="top" icon="#{currentRow.value['severityIcon']}" id="imageErrorSeverity" style="padding: 10px; "/>
                                     </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn id="tableColumnReportErrors" sort="column1" valign="top" width="100%">
-                                        <webuijsf:panelGroup block="true" id="groupPanelReportErrors" style="border-width: 0px; ">
+                                    <webuijsf:tableColumn id="tableColumnReportErrors" sort="column1" valign="middle" width="70%">
+                                        <webuijsf:panelGroup block="true" id="groupPanelReportErrors" separator="&lt;br/&gt;" style="border-width: 0px; ">
                                             <webuijsf:panelLayout id="layoutPanelErrorSummary" panelLayout="flow" style="padding: 10px; height: 100%; width: 100%">
                                                 <webuijsf:staticText id="staticTextErrorLocation" text="#{currentRow.value['location']}"/>
                                                 <webuijsf:staticText id="staticTextErrorMessage" style="font-weight: bold" text="#{currentRow.value['message']}"/>
@@ -51,19 +51,21 @@
                                             <webuijsf:staticText id="staticTextErrorDetails" style="padding: 10px; " text="#{currentRow.value['details']}"/>
                                         </webuijsf:panelGroup>
                                     </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn binding="#{Result.tableColumnHelp}" id="tableColumnHelp" valign="top" width="300">
-                                        <webuijsf:panelGroup id="groupPanelHelp" rendered="#{currentRow.value['helpReferenceAvailable']}">
+                                    <webuijsf:tableColumn align="center" binding="#{Result.tableColumnHelp}" id="tableColumnHelp" valign="middle">
+                                        <webuijsf:panelGroup id="groupPanelHelp" rendered="#{currentRow.value['helpReferenceAvailable']}" separator="&lt;br/&gt;">
                                             <webuijsf:staticText binding="#{Result.staticTextHelp}" id="staticTextHelp" text="#{msg.helpLabel}"/>
                                             <webuijsf:imageHyperlink binding="#{Result.imageHyperlinkHelp}" height="52" id="imageHyperlinkHelp"
-                                                imageURL="/resources/img/PdfIcon.png" target="_blank" width="52" url="#{currentRow.value['helpReferenceLink']}"/>
-                                            <webuijsf:hyperlink binding="#{Result.hyperlinkHelp}" id="hyperlinkHelp" target="_blank" text="#{currentRow.value['helpReference']}"  url="#{currentRow.value['helpReferenceLink']}"/>
+                                                imageURL="/resources/img/PdfIcon.png" target="_blank" url="#{currentRow.value['helpReferenceLink']}" width="52"/>
+                                            <webuijsf:hyperlink binding="#{Result.hyperlinkHelp}" id="hyperlinkHelp" target="_blank"
+                                                text="#{currentRow.value['helpReference']}" url="#{currentRow.value['helpReferenceLink']}"/>
                                         </webuijsf:panelGroup>
                                     </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn binding="#{Result.tableColumnLexicalScope}" id="tableColumnLexicalScope" valign="top" width="300">
-                                        <webuijsf:panelGroup id="groupPanelLexicalScope" rendered="#{currentRow.value['lexicalScopeReferenceAvailable']}">
-                                            <webuijsf:staticText binding="#{Result.staticTextLexicalScope}" id="staticTextLexicalScope" text="#{currentRow.value['lexicalScopeReference']}"/>
+                                    <webuijsf:tableColumn align="center" binding="#{Result.tableColumnLexicalScope}" id="tableColumnLexicalScope" valign="middle">
+                                        <webuijsf:panelGroup id="groupPanelLexicalScope" rendered="#{currentRow.value['lexicalScopeReferenceAvailable']}" separator="&lt;br/&gt;">
                                             <webuijsf:imageHyperlink binding="#{Result.imageHyperlinkLexicalScope}" height="36" id="imageHyperlinkLexicalScope"
-                                                imageURL="/resources/img/LexicalScopeIcon.gif" target="_blank" width="38"  url="#{currentRow.value['lexicalScopeReferenceLink']}"/>
+                                                imageURL="/resources/img/LexicalScopeIcon.gif" target="_blank"
+                                                url="#{currentRow.value['lexicalScopeReferenceLink']}" width="38"/>
+                                            <webuijsf:staticText binding="#{Result.staticTextLexicalScope}" id="staticTextLexicalScope" text="#{currentRow.value['lexicalScopeReference']}"/>
                                         </webuijsf:panelGroup>
                                     </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>
