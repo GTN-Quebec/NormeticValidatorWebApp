@@ -24,7 +24,7 @@ Author     : jcano
                                 <webuijsf:staticText binding="#{Validator.staticTextDescription}" id="staticTextDescription" style="font-size: 14px" text="#{msg.validatorDescription}"/>
                             </h:panelGrid>
                             <webuijsf:tabSet binding="#{Validator.tabSetValidationMethods}" id="tabSetValidationMethods" lite="true"
-                                selected="#{SessionBean1.selectedTab}" style="border-style: ridge; margin: 10px;">
+                                selected="#{SessionBean1.selectedTab}" style="border-style: ridge; margin: 10px; width: 95%">
                                 <webuijsf:tab actionExpression="#{Validator.tabUpload_action}" binding="#{Validator.tabUpload}" id="tabUpload"
                                     style="font-size: 18px" styleClass="Tab1Lnk_sun4" text="#{msg.tab1Title}">
                                     <webuijsf:panelLayout binding="#{Validator.layoutPanel1}" id="layoutPanel1" style="margin: 20px; width: 100%;">
