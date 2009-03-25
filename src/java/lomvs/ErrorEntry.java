@@ -9,6 +9,7 @@ public class ErrorEntry implements Serializable {
 
     public ErrorEntry( ValidationIssue error, ResourceBundle bundle ) {
         this.error = error;
+        this.bundle = bundle;
         this.severityIcon = ( error.getSeverity() == ValidationIssue.Severity.WARNING ? "ALERT_DEGRADED_LARGE" : "ALERT_ERROR_LARGE" );
         if( error.getLine() != -1 && error.getColumn() != -1 ) {
             MessageFormat formatter = new MessageFormat( bundle.getString( "errorLocation" ) );
@@ -45,19 +46,34 @@ public class ErrorEntry implements Serializable {
     }
 
     public String getHelpReference() {
-        return( "LD Catégorie 1 v1.2" );
+        if( !isHelpReferenceAvailable() ) 
+            return( null );
+        
+        StringBuilder str = new StringBuilder();
+        String[] fieldNumbers = error.getRelatedFieldNumber().split( "\\." );
+        if( fieldNumbers.length == 0 )
+            return( null );
+
+        str.append( bundle.getString( "helpHeader" ) ).append( " " ).append( fieldNumbers[ 0 ] ).append( " " ).append( bundle.getString( "helpFooter" ) );
+        str.append( " (p." ).append( error.getReference() ).append( ")" );
+
+        return( str.toString() );
     }
 
     public String getHelpReferenceLink() {
-        return( "http://java.sun.com" );
+        if( !isHelpReferenceAvailable() )
+            return( null );
+
+        String[] fieldNumbers = error.getRelatedFieldNumber().split( "\\." );
+        return( fieldNumbers.length == 0 ? null : "http://www.normetic.org/IMG/pdf_LD_C" + fieldNumbers[ 0 ] + "_v1_2.pdf" );
     }
 
     public boolean isHelpReferenceAvailable() {
-        return( true );
+        return( error.getRelatedFieldNumber() != null && error.getReference() != null );
     }
 
     public String getLexicalScopeReference() {
-        return( "ISO 10646-1" );
+        return( error.getLexicalField() );
     }
 
     public String getLexicalScopeReferenceLink() {
@@ -65,11 +81,12 @@ public class ErrorEntry implements Serializable {
     }
 
     public boolean isLexicalScopeReferenceAvailable() {
-        return( true );
+        return( error.getLexicalField() != null );
     }
 
     private ValidationIssue error;
     private String severityIcon;
     private String location;
+    private ResourceBundle bundle;
 
 }
