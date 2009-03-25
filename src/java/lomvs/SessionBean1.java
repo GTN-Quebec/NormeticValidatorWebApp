@@ -130,10 +130,18 @@ public class SessionBean1 extends AbstractSessionBean {
     public void setReport(ValidationReport report) {
         ResourceBundle bundle = ResourceBundle.getBundle( "lomvs.Bundle", getApplicationBean1().getLocale() );
         this.report = report;
+        this.hasAtLeastOneHelpReference = false;
+        this.hasAtLeastOneLexicalScopeReference = false;
         ValidationIssue[] issues = report.getIssues();
         ArrayList errorList = new ArrayList(issues.length);
-        for (int i = 0; i < issues.length; i++)
-            errorList.add(new ErrorEntry(issues[i],bundle));
+        for (int i = 0; i < issues.length; i++) {
+            ErrorEntry entry = new ErrorEntry(issues[i],bundle);
+            errorList.add( entry );
+            if( !hasAtLeastOneHelpReference && entry.isHelpReferenceAvailable() )
+                hasAtLeastOneHelpReference = true;
+            if( !hasAtLeastOneLexicalScopeReference && entry.isLexicalScopeReferenceAvailable() )
+                hasAtLeastOneLexicalScopeReference = true;
+        }
         this.errorListDataProvider.setList(errorList);
     }
 
@@ -202,7 +210,17 @@ public class SessionBean1 extends AbstractSessionBean {
         this.selectedTab = tab;
     }
 
+    public boolean isHelpAvailableAtLeastOnce() {
+        return( hasAtLeastOneHelpReference );
+    }
+
+    public boolean isLexicalScopeAvailableAtLeastOnce() {
+        return( hasAtLeastOneLexicalScopeReference );
+    }
+
     private ValidationReport report;
+    private boolean hasAtLeastOneHelpReference;
+    private boolean hasAtLeastOneLexicalScopeReference;
     private ObjectListDataProvider errorListDataProvider = new ObjectListDataProvider();
     private String directInputLomString = "";
     private String validatedLomString = "";

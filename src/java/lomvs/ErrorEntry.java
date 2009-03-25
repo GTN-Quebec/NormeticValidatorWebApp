@@ -77,7 +77,8 @@ public class ErrorEntry implements Serializable {
     }
 
     public String getLexicalScopeReferenceLink() {
-        return( "http://www.vim.org" );
+        //return( "http://www.vim.org" );
+        return( null );
     }
 
     public boolean isLexicalScopeReferenceAvailable() {
