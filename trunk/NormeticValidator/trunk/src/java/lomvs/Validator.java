@@ -413,6 +413,7 @@ public class Validator extends AbstractPageBean {
         }
 
         String uploadedFileType = uploadedFile.getContentType();
+System.out.println( "uploadedFileType="+uploadedFileType );
 
         if (uploadedFileType.equals("text/xml") || uploadedFileType.equals("application/x-xml") || uploadedFileType.equals("application/xml") ) {
             try {
@@ -491,7 +492,7 @@ public class Validator extends AbstractPageBean {
         Locale locale = FacesContext.getCurrentInstance().getApplication().getDefaultLocale();
         validator.setLocale( locale );
         ValidationReport report = validator.validate(lomString);
-        boolean isValid = ( report.getErrorCount() > 0 || report.getFatalErrorCount() > 0 );
+        boolean isValid = ( report.getErrorCount() == 0 && report.getFatalErrorCount() == 0 );
         getSessionBean1().setReport( report );
        
         if( isDebug ) {
