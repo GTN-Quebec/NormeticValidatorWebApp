@@ -37,13 +37,13 @@
                             <webuijsf:alert detail="#{SessionBean1.verdictDetail}" id="alertVerdict" style="font-size: 18px"
                                 summary="#{SessionBean1.verdictSummary}" type="#{SessionBean1.verdictType}"/>
                             <webuijsf:table binding="#{Result.tableReportErrors}" cellPadding="10" id="tableReportErrors"
-                                rendered="#{SessionBean1.report.issueCount &gt; 0}" style="width: 95%;" title="#{msg.errorTableTitle}">
+                                rendered="#{SessionBean1.report.issueCount &gt; 0}" style="width: 95%;" title="#{msg.errorTableTitle}" width="1440">
                                 <webuijsf:tableRowGroup align="center" id="tableRowGroupReportErrors" rows="15" sourceData="#{SessionBean1.issues}"
                                     sourceVar="currentRow" valign="middle">
-                                    <webuijsf:tableColumn id="tableColumnErrorSeverity" valign="middle">
+                                    <webuijsf:tableColumn id="tableColumnErrorSeverity" valign="middle" width="40">
                                         <webuijsf:image align="top" icon="#{currentRow.value['severityIcon']}" id="imageErrorSeverity" style="padding: 10px; "/>
                                     </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn id="tableColumnReportErrors" sort="column1" valign="middle" width="70%">
+                                    <webuijsf:tableColumn id="tableColumnReportErrors" sort="column1" valign="middle" width="1000">
                                         <webuijsf:panelGroup block="true" id="groupPanelReportErrors" separator="&lt;br/&gt;" style="border-width: 0px; ">
                                             <webuijsf:panelLayout id="layoutPanelErrorSummary" panelLayout="flow" style="padding: 10px; height: 100%; width: 100%">
                                                 <webuijsf:staticText id="staticTextErrorLocation" text="#{currentRow.value['location']}"/>
@@ -52,7 +52,8 @@
                                             <webuijsf:staticText id="staticTextErrorDetails" style="padding: 10px; " text="#{currentRow.value['details']}"/>
                                         </webuijsf:panelGroup>
                                     </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn align="center" binding="#{Result.tableColumnHelp}" id="tableColumnHelp" valign="middle">
+                                    <webuijsf:tableColumn align="center" binding="#{Result.tableColumnHelp}" id="tableColumnHelp"
+                                        rendered="#{SessionBean1.helpAvailableAtLeastOnce}" valign="middle" width="200">
                                         <webuijsf:panelGroup id="groupPanelHelp" rendered="#{currentRow.value['helpReferenceAvailable']}" separator="&lt;br/&gt;">
                                             <webuijsf:staticText binding="#{Result.staticTextHelp}" id="staticTextHelp" text="#{msg.helpLabel}"/>
                                             <webuijsf:imageHyperlink binding="#{Result.imageHyperlinkHelp}" height="52" id="imageHyperlinkHelp"
@@ -61,7 +62,8 @@
                                                 text="#{currentRow.value['helpReference']}" url="#{currentRow.value['helpReferenceLink']}"/>
                                         </webuijsf:panelGroup>
                                     </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn align="center" binding="#{Result.tableColumnLexicalScope}" id="tableColumnLexicalScope" valign="middle">
+                                    <webuijsf:tableColumn align="center" binding="#{Result.tableColumnLexicalScope}" id="tableColumnLexicalScope"
+                                        rendered="#{SessionBean1.lexicalScopeAvailableAtLeastOnce}" valign="middle" width="200">
                                         <webuijsf:panelGroup id="groupPanelLexicalScope" rendered="#{currentRow.value['lexicalScopeReferenceAvailable']}" separator="&lt;br/&gt;">
                                             <webuijsf:staticText binding="#{Result.staticTextLexicalScopeHeader}" id="staticTextLexicalScopeHeader" text="#{msg.lexicalScopeHeader}"/>
                                             <webuijsf:imageHyperlink binding="#{Result.imageHyperlinkLexicalScope}" height="52" id="imageHyperlinkLexicalScope"
