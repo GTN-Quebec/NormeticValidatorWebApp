@@ -5,6 +5,9 @@
  */
 package lomvs;
 
+import java.io.BufferedReader;
+import java.io.StringReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import com.sun.rave.web.ui.appbase.AbstractSessionBean;
@@ -196,6 +199,30 @@ public class SessionBean1 extends AbstractSessionBean {
 
     public String getValidatedLomString() {
         return (validatedLomString);
+    }
+
+    public String getDecoratedValidatedString() {
+        StringBuilder str = new StringBuilder();
+        BufferedReader reader = new BufferedReader( new StringReader( validatedLomString ) );
+        try {
+            for( int lineNumber = 1;; lineNumber++ ) {
+                String line = reader.readLine();
+                if( line == null )
+                    break;
+                str.append( lineNumber ).append( ": " ).append( line ).append( "\n" );
+            }
+        }
+        catch( IOException ignoreUnreadableLine ) {
+            // Should never happen but get out of the loop (just in case).
+        }
+        finally {
+            try {
+                reader.close();
+            }
+            catch( IOException ignore ) {
+            }
+        }
+        return( str.toString() );
     }
 
     public void setValidatedLomString(String lomString) {

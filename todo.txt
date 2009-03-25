@@ -21,7 +21,7 @@ Warning: at xsl:stylesheet on line 72 of :
 After clicking the Check button, disable the button and show an animated image to indicate that the validation is in progress.
 Use a center layout?
 Display scope of xml file.
-Display line numbers in xml context.
+Indent XML and colorize it?
 Optimize.  Check if it would be possible to allocate less validator and reuse them instead.  Would synchronizing the validate method create an unacceptable bottleneck?  Use profiler maybe.
 Make sure that temporary files are purged.
 Add Tab for validate from url if I have time?
