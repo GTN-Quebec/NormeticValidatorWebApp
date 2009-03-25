@@ -33,11 +33,11 @@
                             </h:panelGrid>
                             <webuijsf:staticText binding="#{Result.staticTextReportTitle}" id="staticTextReportTitle" style="font-size: 24px" text="#{msg.reportTitle}"/>
                             <webuijsf:staticText binding="#{Result.staticTextLom}" id="staticTextLom" text="#{msg.submittedLom}"/>
-                            <webuijsf:textArea columns="200" id="textAreaLom" readOnly="true" rows="20" style="" text="#{SessionBean1.validatedLomString}"/>
+                            <webuijsf:textArea columns="200" id="textAreaLom" readOnly="true" rows="20" style="" text="#{SessionBean1.decoratedValidatedString}"/>
                             <webuijsf:alert detail="#{SessionBean1.verdictDetail}" id="alertVerdict" style="font-size: 18px"
                                 summary="#{SessionBean1.verdictSummary}" type="#{SessionBean1.verdictType}"/>
                             <webuijsf:table binding="#{Result.tableReportErrors}" cellPadding="10" id="tableReportErrors"
-                                rendered="#{SessionBean1.report.issueCount &gt; 0}" style="width: 95%;" title="#{msg.errorTableTitle}" width="1440">
+                                rendered="#{SessionBean1.report.issueCount &gt; 0}" style="width: 100%;" title="#{msg.errorTableTitle}">
                                 <webuijsf:tableRowGroup align="center" id="tableRowGroupReportErrors" rows="15" sourceData="#{SessionBean1.issues}"
                                     sourceVar="currentRow" valign="middle">
                                     <webuijsf:tableColumn id="tableColumnErrorSeverity" valign="middle" width="40">
