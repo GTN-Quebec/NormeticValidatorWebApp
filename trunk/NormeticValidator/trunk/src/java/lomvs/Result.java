@@ -330,6 +330,15 @@ public class Result extends AbstractPageBean {
     public void setImageHyperlinkHelp(ImageHyperlink ih) {
         this.imageHyperlinkHelp = ih;
     }
+    private StaticText staticTextLexicalScopeHeader = new StaticText();
+
+    public StaticText getStaticTextLexicalScopeHeader() {
+        return staticTextLexicalScopeHeader;
+    }
+
+    public void setStaticTextLexicalScopeHeader(StaticText st) {
+        this.staticTextLexicalScopeHeader = st;
+    }
 
     // </editor-fold>
     /**

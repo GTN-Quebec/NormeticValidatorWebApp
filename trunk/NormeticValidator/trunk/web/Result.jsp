@@ -38,7 +38,8 @@
                                 summary="#{SessionBean1.verdictSummary}" type="#{SessionBean1.verdictType}"/>
                             <webuijsf:table binding="#{Result.tableReportErrors}" cellPadding="10" id="tableReportErrors"
                                 rendered="#{SessionBean1.report.issueCount &gt; 0}" style="width: 95%;" title="#{msg.errorTableTitle}">
-                                <webuijsf:tableRowGroup id="tableRowGroupReportErrors" rows="15" sourceData="#{SessionBean1.issues}" sourceVar="currentRow" valign="top">
+                                <webuijsf:tableRowGroup align="center" id="tableRowGroupReportErrors" rows="15" sourceData="#{SessionBean1.issues}"
+                                    sourceVar="currentRow" valign="middle">
                                     <webuijsf:tableColumn id="tableColumnErrorSeverity" valign="middle">
                                         <webuijsf:image align="top" icon="#{currentRow.value['severityIcon']}" id="imageErrorSeverity" style="padding: 10px; "/>
                                     </webuijsf:tableColumn>
@@ -62,9 +63,10 @@
                                     </webuijsf:tableColumn>
                                     <webuijsf:tableColumn align="center" binding="#{Result.tableColumnLexicalScope}" id="tableColumnLexicalScope" valign="middle">
                                         <webuijsf:panelGroup id="groupPanelLexicalScope" rendered="#{currentRow.value['lexicalScopeReferenceAvailable']}" separator="&lt;br/&gt;">
-                                            <webuijsf:imageHyperlink binding="#{Result.imageHyperlinkLexicalScope}" height="36" id="imageHyperlinkLexicalScope"
+                                            <webuijsf:staticText binding="#{Result.staticTextLexicalScopeHeader}" id="staticTextLexicalScopeHeader" text="#{msg.lexicalScopeHeader}"/>
+                                            <webuijsf:imageHyperlink binding="#{Result.imageHyperlinkLexicalScope}" height="52" id="imageHyperlinkLexicalScope"
                                                 imageURL="/resources/img/LexicalScopeIcon.gif" target="_blank"
-                                                url="#{currentRow.value['lexicalScopeReferenceLink']}" width="38"/>
+                                                url="#{currentRow.value['lexicalScopeReferenceLink']}" width="52"/>
                                             <webuijsf:staticText binding="#{Result.staticTextLexicalScope}" id="staticTextLexicalScope" text="#{currentRow.value['lexicalScopeReference']}"/>
                                         </webuijsf:panelGroup>
                                     </webuijsf:tableColumn>
