@@ -74,8 +74,12 @@
                                     </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
-                            <webuijsf:button actionExpression="#{Result.previousPageButton_action}" binding="#{Result.previousPageButton}"
-                                id="previousPageButton" style="font-size: 14px;  width: 150px" text="#{msg.goBack}"/>
+                            <webuijsf:panelLayout id="layoutPanelButtons" panelLayout="flow" style="width: 100%; height: 100%;">
+                                <webuijsf:button actionExpression="#{Result.previousPageButton_action}" binding="#{Result.previousPageButton}"
+                                    id="previousPageButton" style="font-size: 14px; width: 150px" text="#{msg.goBack}"/>
+                                <webuijsf:button actionExpression="#{Result.goDirectInputButton_action}" binding="#{Result.goDirectInputButton}"
+                                    id="goDirectInputButton" style="font-size: 14px; width: 250px" text="#{msg.goDirectInput}" rendered="#{SessionBean1.selectedTab ne 'tabDirectInput'}"/>
+                            </webuijsf:panelLayout>
                         </h:panelGrid>
                         <div style="">
                             <jsp:directive.include file="Footer_LomVS.jspf"/>
