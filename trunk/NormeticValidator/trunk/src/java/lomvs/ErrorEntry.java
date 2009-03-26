@@ -30,8 +30,6 @@ public class ErrorEntry implements Serializable {
     public String getMessage() {
         StringBuilder str = new StringBuilder();
         str.append( error.getAlternateMessage() != null ? error.getAlternateMessage() : error.getMessage() );
-        //if( error.getExplanation() != null ) 
-        //    str.append( " " ).append( error.getExplanation() );
         return( str.toString() );
     }
 
@@ -40,8 +38,6 @@ public class ErrorEntry implements Serializable {
     }
 
     public String getDetails() {
-        //return( error.getAlternateMessage() != null ? error.getMessage() : null );
-        //return( null );
         return( error.getExplanation() );
     }
 
