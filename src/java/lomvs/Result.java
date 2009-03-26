@@ -339,6 +339,15 @@ public class Result extends AbstractPageBean {
     public void setStaticTextLexicalScopeHeader(StaticText st) {
         this.staticTextLexicalScopeHeader = st;
     }
+    private Button goDirectInputButton = new Button();
+
+    public Button getGoDirectInputButton() {
+        return goDirectInputButton;
+    }
+
+    public void setGoDirectInputButton(Button b) {
+        this.goDirectInputButton = b;
+    }
 
     // </editor-fold>
     /**
@@ -455,6 +464,13 @@ public class Result extends AbstractPageBean {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
         return null;
+    }
+
+    public String goDirectInputButton_action() {
+        // TODO: Process the action. Return value is a navigation
+        // case name where null will return to the same page.
+        getSessionBean1().setSelectedTab( "tabDirectInput" );
+        return "previous";
     }
 
 }
