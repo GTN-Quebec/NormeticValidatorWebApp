@@ -5,6 +5,7 @@
  */
 package lomvs;
 
+import com.sun.webui.jsf.component.Checkbox;
 import com.sun.webui.jsf.component.StaticText;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -263,6 +264,24 @@ public class Validator extends AbstractPageBean {
     public void setStaticTextDescription(StaticText st) {
         this.staticTextDescription = st;
     }
+    private Checkbox checkboxShowRecommendationsForUpload = new Checkbox();
+
+    public Checkbox getCheckboxShowRecommendationsForUpload() {
+        return checkboxShowRecommendationsForUpload;
+    }
+
+    public void setCheckboxShowRecommendationsForUpload(Checkbox c) {
+        this.checkboxShowRecommendationsForUpload = c;
+    }
+    private Checkbox checkboxShowRecommendationsForDirectInput = new Checkbox();
+
+    public Checkbox getCheckboxShowRecommendationsForDirectInput() {
+        return checkboxShowRecommendationsForDirectInput;
+    }
+
+    public void setCheckboxShowRecommendationsForDirectInput(Checkbox c) {
+        this.checkboxShowRecommendationsForDirectInput = c;
+    }
 
     // </editor-fold>
     /**
@@ -494,6 +513,7 @@ public class Validator extends AbstractPageBean {
         Locale locale = FacesContext.getCurrentInstance().getApplication().getDefaultLocale();
         validator.setLocale( locale );
         validator.setForcedValidationEnabled( true );
+        validator.setShowRecommendationsEnabled( getSessionBean1().isShowRecommendationsEnabled() );
         ValidationReport report = validator.validate(lomString);
         boolean isValid = ( report.getErrorCount() == 0 && report.getFatalErrorCount() == 0 );
         getSessionBean1().setReport( report );
@@ -516,6 +536,16 @@ public class Validator extends AbstractPageBean {
     public String buttonClearDirectInput_action() {
         textAreaDirectInput.setText( "" );
         return null;
+    }
+
+    public void checkboxShowRecommendationsForUpload_processValueChange(ValueChangeEvent event) {
+        Boolean isChecked = (Boolean)event.getNewValue();
+        getSessionBean1().setShowRecommendationsEnabled( isChecked.booleanValue() );
+    }
+
+    public void checkboxShowRecommendationsForDirectInput_processValueChange(ValueChangeEvent event) {
+        Boolean isChecked = (Boolean)event.getNewValue();
+        getSessionBean1().setShowRecommendationsEnabled( isChecked.booleanValue() );
     }
 
 }

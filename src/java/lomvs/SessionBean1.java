@@ -189,6 +189,14 @@ public class SessionBean1 extends AbstractSessionBean {
         return (this.errorListDataProvider);
     }
 
+    public void setShowRecommendationsEnabled( boolean isShowRecommendationsEnabled ) {
+        this.isShowRecommendationsEnabled = isShowRecommendationsEnabled;
+    }
+
+    public boolean isShowRecommendationsEnabled() {
+        return( isShowRecommendationsEnabled );
+    }
+
     public String getDirectInputLomString() {
         return (directInputLomString);
     }
@@ -252,5 +260,6 @@ public class SessionBean1 extends AbstractSessionBean {
     private String directInputLomString = "";
     private String validatedLomString = "";
     private String selectedTab = "tabUpload";
+    private boolean isShowRecommendationsEnabled = true;
     
 }

@@ -32,8 +32,13 @@ Author     : jcano
                                             <webuijsf:label binding="#{Validator.labelTitle}" id="labelTitle" style="font-size: 14px" text="#{msg.Uploadtext1}"/>
                                             <webuijsf:upload binding="#{Validator.fileUpload1}" columns="80" id="fileUpload1" label="#{msg.Uploadtext2}"
                                                 preservePath="true" style="font-size: 14px"/>
-                                            <webuijsf:button actionExpression="#{Validator.uploadFileButton_action}" binding="#{Validator.uploadFileButton}"
-                                                id="uploadFileButton" style="font-size: 18px; width: 150px" text="#{msg.check}"/>
+                                            <webuijsf:checkbox binding="#{Validator.checkboxShowRecommendationsForUpload}"
+                                                id="checkboxShowRecommendationsForUpload" label="#{msg.showRecommendations}"
+                                                selected="#{SessionBean1.showRecommendationsEnabled}" valueChangeListenerExpression="#{Validator.checkboxShowRecommendationsForUpload_processValueChange}"/>
+                                            <webuijsf:panelLayout id="layoutPanel4" panelLayout="flow">
+                                                <webuijsf:button actionExpression="#{Validator.uploadFileButton_action}" binding="#{Validator.uploadFileButton}"
+                                                    id="uploadFileButton" style="font-size: 18px; width: 150px" text="#{msg.check}"/>
+                                            </webuijsf:panelLayout>
                                             <webuijsf:messageGroup binding="#{Validator.messageGroup1}" id="messageGroup1"
                                                 style="width: 100%; text-align: left;" title="#{msg.errorGroupTitle}"/>
                                         </h:panelGrid>
@@ -46,6 +51,9 @@ Author     : jcano
                                             <webuijsf:label binding="#{Validator.labelDirectInputTitle}" id="labelDirectInputTitle" text="#{msg.directInputText}"/>
                                             <webuijsf:textArea binding="#{Validator.textAreaDirectInput}" columns="100" id="textAreaDirectInput" rows="15"
                                                 text="#{SessionBean1.directInputLomString}" valueChangeListenerExpression="#{Validator.textAreaDirectInput_processValueChange}"/>
+                                            <webuijsf:checkbox binding="#{Validator.checkboxShowRecommendationsForDirectInput}"
+                                                id="checkboxShowRecommendationsForDirectInput" label="#{msg.showRecommendations}"
+                                                selected="#{SessionBean1.showRecommendationsEnabled}" valueChangeListenerExpression="#{Validator.checkboxShowRecommendationsForDirectInput_processValueChange}"/>
                                             <webuijsf:panelLayout id="layoutPanel3" panelLayout="flow">
                                                 <webuijsf:button actionExpression="#{Validator.directInputbutton_action}"
                                                     binding="#{Validator.directInputbutton}" id="directInputbutton" style="font-size: 18px; width: 150px" text="#{msg.check}"/>
