@@ -493,6 +493,7 @@ public class Validator extends AbstractPageBean {
         NormeticValidator validator = new NormeticValidator();
         Locale locale = FacesContext.getCurrentInstance().getApplication().getDefaultLocale();
         validator.setLocale( locale );
+        validator.setForcedValidationEnabled( true );
         ValidationReport report = validator.validate(lomString);
         boolean isValid = ( report.getErrorCount() == 0 && report.getFatalErrorCount() == 0 );
         getSessionBean1().setReport( report );
