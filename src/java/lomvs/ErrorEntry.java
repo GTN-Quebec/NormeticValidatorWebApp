@@ -73,8 +73,9 @@ public class ErrorEntry implements Serializable {
     }
 
     public String getLexicalScopeReferenceLink() {
-        //return( "http://www.vim.org" );
-        return( null );
+        String transformedRef = getLexicalScopeReference().replace( " ", "_" );
+        transformedRef = transformedRef.replace( ",", "_" );
+        return( "/vocab/" + bundle.getLocale().getLanguage() + "/" + transformedRef + ".html" );
     }
 
     public boolean isLexicalScopeReferenceAvailable() {
