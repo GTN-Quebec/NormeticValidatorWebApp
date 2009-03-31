@@ -1,3 +1,4 @@
+Make the string under the Lexical Field icon an hyperlink whenever possible (always?)
 Fix NullPointerException in SessionBean1.getVerdictType().  The report is null.  Here is how to reproduce it : 
 0) Set session-timeout to 1 and redeploy/restart Tomcat.
 1) Copy this url into the buffer: http://localhost:8080/NormeticValidator/faces/Result.jsp
