@@ -75,6 +75,7 @@ public class ErrorEntry implements Serializable {
     public String getLexicalScopeReferenceLink() {
         String transformedRef = getLexicalScopeReference().replace( " ", "_" );
         transformedRef = transformedRef.replace( ",", "_" );
+        transformedRef = transformedRef.replace( ":", "_" );
         return( "/vocab/" + bundle.getLocale().getLanguage() + "/" + transformedRef + ".html" );
     }
 
