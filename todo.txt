@@ -1,3 +1,4 @@
+Recheck the original lom specimens and improve as many messages as possible.
 Make the string under the Lexical Field icon an hyperlink whenever possible (always?)
 Fix NullPointerException in SessionBean1.getVerdictType().  The report is null.  Here is how to reproduce it : 
 0) Set session-timeout to 1 and redeploy/restart Tomcat.
