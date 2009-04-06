@@ -16,6 +16,10 @@
         <param-name>isDebug</param-name>
         <param-value>true</param-value>
     </context-param>
+    <context-param>
+        <param-name>helpLinks</param-name>
+        <param-value>http://www.normetic.org/IMG/pdf_LD_C1_v1_2.pdf|http://www.normetic.org/IMG/pdf_LD_C2_v1_2.pdf|http://www.normetic.org/IMG/pdf_LD_C3_v1_2.pdf|http://www.normetic.org/IMG/pdf_LD_C4_v1_2.pdf|http://www.normetic.org/IMG/pdf_LD_Categorie_5.pdf|http://www.normetic.org/IMG/pdf_LD_C6_v1_2.pdf|http://www.normetic.org/IMG/pdf_LD_C7_v1_2.pdf|http://www.normetic.org/IMG/pdf_LD_C8_v1_2.pdf|http://www.normetic.org/IMG/pdf_LD_C9_v1_2-2.pdf</param-value>
+    </context-param>
     <filter>
         <filter-name>UploadFilter</filter-name>
         <filter-class>com.sun.webui.jsf.util.UploadFilter</filter-class>

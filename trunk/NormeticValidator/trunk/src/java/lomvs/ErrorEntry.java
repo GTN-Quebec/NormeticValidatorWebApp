@@ -61,7 +61,16 @@ public class ErrorEntry implements Serializable {
             return( null );
 
         String[] fieldNumbers = error.getRelatedFieldNumber().split( "\\." );
-        return( fieldNumbers.length == 0 ? null : "http://www.normetic.org/IMG/pdf_LD_C" + fieldNumbers[ 0 ] + "_v1_2.pdf" );
+        if( fieldNumbers.length == 0 )
+            return( null );
+
+        try {
+            int fieldNumber = Integer.parseInt( fieldNumbers[ 0 ] );
+            return( ApplicationBean1.helpLinks[ fieldNumber - 1 ] );
+        }
+        catch( NumberFormatException e ) {
+            return( null );
+        }
     }
 
     public boolean isHelpReferenceAvailable() {
