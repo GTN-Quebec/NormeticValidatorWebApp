@@ -75,6 +75,7 @@ public class ApplicationBean1 extends AbstractApplicationBean {
     // Perform application initialization that must complete
     // *after* managed components are initialized
     // TODO - add your own initialization code here
+        helpLinks = getExternalContext().getInitParameter( "helpLinks" ).split( "\\|" );
     }
 
     /**
@@ -109,4 +110,5 @@ public class ApplicationBean1 extends AbstractApplicationBean {
         return( locale );
     }
 
+    public static String[] helpLinks;
 }
