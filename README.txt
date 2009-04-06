@@ -19,11 +19,13 @@ It should be impossible to compile at this moment as some libraries must be spec
 10) In Frameworkѕ category, click Add and select Visual Web JavaServer Faces.
 11) In Libraries category, click Add JAR/Folder and select these files :
 
-- saxon8.jar (taken from saxonb8-9-0-4j) 
-- jing.jar (taken from jing-20030619)
+- saxon9.jar (taken from saxonb9-1-0-5j) 
+- jing.jar (taken from jing-20030619) * Not really used for now *
 
 Note that other versions of these jar files may work but have not been tested.
 
 12) Select the root element of the project in the Projects window, right-click and Build.
 
 At this moment, you should be able to compile and build the application.
+
+
