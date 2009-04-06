@@ -1,0 +1,29 @@
+Recheck the original lom specimens and improve as many messages as possible.
+Make the string under the Lexical Field icon an hyperlink whenever possible (always?)
+Fix NullPointerException in SessionBean1.getVerdictType().  The report is null.  Here is how to reproduce it : 
+0) Set session-timeout to 1 and redeploy/restart Tomcat.
+1) Copy this url into the buffer: http://localhost:8080/NormeticValidator/faces/Result.jsp
+2) Submit an invalid lom
+3) Wait until the session expires
+4) Paste the url into the location bar and go to the page.  
+5) As the session is expired, the report is null.
+When the session is expired, we should present an error page saying so and redirect automatically to form page.  A good article on this topic can be found here (search "expired") : http://www.jroller.com/hasant/category/Java
+
+Some times, when we validate a lom on Firefox 3.0, images and report lines are not displayed.  No exceptions are thrown.  It seems to work fine on other browsers.
+Fix bugs mentioned in Claire's document and my answer (TestsLomValidator.doc): c12, c16, c19, c40. 
+Write unitary tests and produce report.
+Write documentation & report : organization, usage (CLI + GUI), installation, possible improvements, actual limitations & justifications.
+
+Optional
+========
+Remove ApplicationBean1.  It's used only for locale and we could use context.getViewRoot().getLocale() to get it as mentioned in http://www.laliluna.de/javaserver-faces-message-resource-bundle-tutorial.html
+Make the following warning and blank lines disappear (in Tomcat's log file): 
+Warning: at xsl:stylesheet on line 72 of :
+  Running an XSLT 1.0 stylesheet with an XSLT 2.0 processor
+After clicking the Check button, disable the button and show an animated image to indicate that the validation is in progress.
+Use a center layout?
+Display scope of xml file.
+Indent XML and colorize it?
+Optimize.  Check if it would be possible to allocate less validator and reuse them instead.  Would synchronizing the validate method create an unacceptable bottleneck?  Use profiler maybe.
+Make sure that temporary files are purged.
+Add Tab for validate from url if I have time?
