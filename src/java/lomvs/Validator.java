@@ -450,6 +450,7 @@ public class Validator extends AbstractPageBean {
 
                 getSessionBean1().setDirectInputLomString( lomString.toString() );
                 getSessionBean1().setValidatedLomString( lomString.toString() );
+                getSessionBean1().setUploadedLomFilename( justFileName );
 
                 try {
                     validateLomString(getSessionBean1().getValidatedLomString());
@@ -488,6 +489,7 @@ public class Validator extends AbstractPageBean {
         }
 
         getSessionBean1().setValidatedLomString( lomString );
+        getSessionBean1().setUploadedLomFilename( null );
         try {
             validateLomString( getSessionBean1().getValidatedLomString() );
             return "Validation";

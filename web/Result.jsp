@@ -32,7 +32,7 @@
                                 <webuijsf:staticText binding="#{Result.nameSpacestaticText}" id="nameSpacestaticText"/>
                             </h:panelGrid>
                             <webuijsf:staticText binding="#{Result.staticTextReportTitle}" id="staticTextReportTitle" style="font-size: 24px" text="#{msg.reportTitle}"/>
-                            <webuijsf:staticText binding="#{Result.staticTextLom}" id="staticTextLom" text="#{msg.submittedLom}"/>
+                            <webuijsf:staticText binding="#{Result.staticTextLom}" id="staticTextLom" text="#{Result.submittedLomHeader}"/>
                             <webuijsf:textArea columns="200" id="textAreaLom" readOnly="true" rows="20" style="" text="#{SessionBean1.decoratedValidatedString}"/>
                             <webuijsf:alert detail="#{SessionBean1.verdictDetail}" id="alertVerdict" style="font-size: 18px"
                                 summary="#{SessionBean1.verdictSummary}" type="#{SessionBean1.verdictType}"/>

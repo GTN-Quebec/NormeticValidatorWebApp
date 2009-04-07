@@ -253,6 +253,14 @@ public class SessionBean1 extends AbstractSessionBean {
         return( hasAtLeastOneLexicalScopeReference );
     }
 
+    public void setUploadedLomFilename( String filename ) {
+        this.uploadedLomFilename = filename;
+    }
+
+    public String getUploadedLomFilename() {
+        return( this.uploadedLomFilename );
+    }
+
     private ValidationReport report;
     private boolean hasAtLeastOneHelpReference;
     private boolean hasAtLeastOneLexicalScopeReference;
@@ -261,5 +269,6 @@ public class SessionBean1 extends AbstractSessionBean {
     private String validatedLomString = "";
     private String selectedTab = "tabUpload";
     private boolean isShowRecommendationsEnabled = true;
+    private String uploadedLomFilename;
     
 }

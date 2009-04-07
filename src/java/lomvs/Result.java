@@ -13,6 +13,7 @@ import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import java.io.*;
 import java.net.*;
+import java.util.ResourceBundle;
 import javax.xml.*;
 import javax.xml.validation.*;
 import javax.xml.parsers.*;
@@ -472,6 +473,16 @@ public class Result extends AbstractPageBean {
         getSessionBean1().setSelectedTab( "tabDirectInput" );
         return "previous";
     }
+
+    public String getSubmittedLomHeader() {
+        StringBuilder str = new StringBuilder();
+        str.append( bundle.getString( "submittedLom" ) );
+        if( getSessionBean1().getUploadedLomFilename() != null )
+            str.append( ": " ).append( getSessionBean1().getUploadedLomFilename() ).append( "." );
+        return( str.toString() );
+    }
+
+    private ResourceBundle bundle = ResourceBundle.getBundle( "lomvs.Bundle", getApplicationBean1().getLocale() );
 
 }
 
