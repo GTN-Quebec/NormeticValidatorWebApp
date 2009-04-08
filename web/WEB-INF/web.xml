@@ -34,10 +34,18 @@
             <param-value>4096</param-value>
         </init-param>
     </filter>
+    <filter>
+        <filter-name>SessionTimeoutFilter</filter-name>
+        <filter-class>lomvs.SessionTimeoutFilter</filter-class>
+    </filter>
     <filter-mapping>
         <filter-name>UploadFilter</filter-name>
         <servlet-name>Faces Servlet</servlet-name>
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>SessionTimeoutFilter</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping> 
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -83,6 +91,9 @@
         <servlet-name>ThemeServlet</servlet-name>
         <url-pattern>/theme/*</url-pattern>
     </servlet-mapping>
+    <listener>
+        <listener-class>lomvs.SessionCleaner</listener-class>
+    </listener>
     <session-config>
         <session-timeout>
             30
