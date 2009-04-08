@@ -304,15 +304,6 @@ public class Result extends AbstractPageBean {
     public void setImageHyperlinkLexicalScope(ImageHyperlink ih) {
         this.imageHyperlinkLexicalScope = ih;
     }
-    private StaticText staticTextLexicalScope = new StaticText();
-
-    public StaticText getStaticTextLexicalScope() {
-        return staticTextLexicalScope;
-    }
-
-    public void setStaticTextLexicalScope(StaticText st) {
-        this.staticTextLexicalScope = st;
-    }
     private Hyperlink hyperlinkHelp = new Hyperlink();
 
     public Hyperlink getHyperlinkHelp() {

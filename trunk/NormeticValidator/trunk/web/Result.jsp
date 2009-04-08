@@ -67,9 +67,9 @@
                                         <webuijsf:panelGroup id="groupPanelLexicalScope" rendered="#{currentRow.value['lexicalScopeReferenceAvailable']}" separator="&lt;br/&gt;">
                                             <webuijsf:staticText binding="#{Result.staticTextLexicalScopeHeader}" id="staticTextLexicalScopeHeader" text="#{msg.lexicalScopeHeader}"/>
                                             <webuijsf:imageHyperlink binding="#{Result.imageHyperlinkLexicalScope}" height="52" id="imageHyperlinkLexicalScope"
-                                                imageURL="/resources/img/LexicalScopeIcon.gif" target="_blank"
+                                                imageURL="/resources/img/LexicalScopeIcon.gif" target="_blank" 
                                                 url="#{currentRow.value['lexicalScopeReferenceLink']}" width="52"/>
-                                            <webuijsf:staticText binding="#{Result.staticTextLexicalScope}" id="staticTextLexicalScope" text="#{currentRow.value['lexicalScopeReference']}"/>
+                                            <webuijsf:hyperlink id="hyperlinkLexicalScope" text="#{currentRow.value['lexicalScopeReference']}" target="_blank" url="#{currentRow.value['lexicalScopeReferenceLink']}"/>
                                         </webuijsf:panelGroup>
                                     </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>
@@ -78,7 +78,7 @@
                                 <webuijsf:button actionExpression="#{Result.previousPageButton_action}" binding="#{Result.previousPageButton}"
                                     id="previousPageButton" style="font-size: 14px; width: 150px" text="#{msg.goBack}"/>
                                 <webuijsf:button actionExpression="#{Result.goDirectInputButton_action}" binding="#{Result.goDirectInputButton}"
-                                    id="goDirectInputButton" style="font-size: 14px; width: 250px" text="#{msg.goDirectInput}" rendered="#{SessionBean1.selectedTab ne 'tabDirectInput'}"/>
+                                    id="goDirectInputButton" rendered="#{SessionBean1.selectedTab ne 'tabDirectInput'}" style="font-size: 14px; width: 250px" text="#{msg.goDirectInput}"/>
                             </webuijsf:panelLayout>
                         </h:panelGrid>
                         <div style="">
