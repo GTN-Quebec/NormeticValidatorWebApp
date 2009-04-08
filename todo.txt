@@ -1,5 +1,3 @@
-Recheck the original lom specimens and improve as many messages as possible.
-Make the string under the Lexical Field icon an hyperlink whenever possible (always?)
 Fix NullPointerException in SessionBean1.getVerdictType().  The report is null.  Here is how to reproduce it : 
 0) Set session-timeout to 1 and redeploy/restart Tomcat.
 1) Copy this url into the buffer: http://localhost:8080/NormeticValidator/faces/Result.jsp
@@ -11,8 +9,6 @@ When the session is expired, we should present an error page saying so and redir
 
 Some times, when we validate a lom on Firefox 3.0, images and report lines are not displayed.  No exceptions are thrown.  It seems to work fine on other browsers.
 Fix bugs mentioned in Claire's document and my answer (TestsLomValidator.doc): c12, c16, c19, c40. 
-Write unitary tests and produce report.
-Write documentation & report : organization, usage (CLI + GUI), installation, possible improvements, actual limitations & justifications.
 
 Optional
 ========
