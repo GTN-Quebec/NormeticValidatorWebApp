@@ -1,0 +1,81 @@
+/*
+ * After modifying this style sheet, refresh the page being designed to see the effect of the modification.
+ * Click the Refresh button in the Visual Designer toolbar to refresh the page.
+ */ 
+
+/* Style rules to make Java Server faces Standarad data tables look better */
+
+.list-header {
+  background-color: #eeeeee;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.list-paging-header {
+  background-color: white;
+}
+
+.list-paging-footer {
+  background-color: white;
+}
+
+.list-row-even { 
+}
+
+.list-row-odd { 
+  background-color: #eeeeee;
+}
+
+/* Style rules for message severity levels */
+
+.infoMessage {
+  color: black;
+}
+
+.warnMessage {
+  color: orange;
+  font-weight: bold;
+}
+
+.errorMessage {
+  color: red;
+  font-weight: bold;
+}
+
+.fatalMessage {
+  color: red;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/*
+table.Tbl_sun4 td, table.Tbl_sun4 th {
+    border-width: 0px !important;
+}
+*/
+
+.MsgGrpTblTtl_sun4 {
+    padding: 10px !important;
+}
+
+.MsgGrpSumTxt_sun4 {
+    margin-right: 10px !important;
+}
+
+.inlineAlert_4_sun4 {
+    text-align: left !important;
+}
+
+.middle_sun4 {
+    text-align: left !important;
+}
+
+.header_sun4 {
+    text-align: left !important;
+}
+
+/* Patch to force style on the textArea where the LOM is shown. */
+[id="form1:textAreaLom_field"] {
+    width: 100%;
+    border: solid 1px gray;
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : Header_LomVS
+    Created on : 7-Apr-2008, 2:09:26 PM
+    Author     : jcano
+-->
+<div style="background-color: rgb(255, 255, 255); height: 150px; width: 400px; -rave-layout: grid" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html" xmlns:webuijsf="http://www.sun.com/webui/webuijsf">
+    <f:subview id="Header_LomVS">
+        <h:panelGrid binding="#{Header_LomVS.headerPanel}" id="headerPanel" style="" width="100%">
+            <webuijsf:image align="top" id="imageBanner" url="/resources/img/#{ApplicationBean1.locale.language}/banner.jpg"/>
+        </h:panelGrid>
+    </f:subview>
+</div>
