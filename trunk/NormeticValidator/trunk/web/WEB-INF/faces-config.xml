@@ -28,23 +28,8 @@
         <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
     <managed-bean>
-        <managed-bean-name>RequestBean1</managed-bean-name>
-        <managed-bean-class>lomvs.RequestBean1</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-    <managed-bean>
-        <managed-bean-name>Header_LomVS</managed-bean-name>
-        <managed-bean-class>lomvs.Header_LomVS</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-    <managed-bean>
         <managed-bean-name>Result</managed-bean-name>
         <managed-bean-class>lomvs.Result</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-    <managed-bean>
-        <managed-bean-name>Footer_LomVS</managed-bean-name>
-        <managed-bean-class>lomvs.Footer_LomVS</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <navigation-rule>
@@ -66,3 +51,5 @@
         </navigation-case>
     </navigation-rule>
 </faces-config>
+
+

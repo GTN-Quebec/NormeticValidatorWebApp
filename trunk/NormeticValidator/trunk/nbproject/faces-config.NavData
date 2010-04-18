@@ -2,8 +2,46 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="Validator.jsp" x="150" y="150" zoom="true"/>
+        <Node id="vocab/fr/ISO_8601_2000.html" x="1400" y="600" zoom="true"/>
+        <Node id="vocab/fr/LOM_2.3.1.html" x="1150" y="150" zoom="true"/>
+        <Node id="vocab/en/LOM_5.4.html" x="650" y="750" zoom="true"/>
+        <Node id="vocab/en/LOM_5.8.html" x="900" y="300" zoom="true"/>
         <Node id="Result.jsp" x="400" y="150" zoom="true"/>
+        <Node id="vocab/en/LOM_1.8.html" x="1900" y="300" zoom="true"/>
+        <Node id="vocab/en/LOM_9.1.html" x="400" y="750" zoom="true"/>
+        <Node id="vocab/en/LOM_5.5.html" x="400" y="600" zoom="true"/>
+        <Node id="vocab/fr/LOM_1.8.html" x="400" y="900" zoom="true"/>
+        <Node id="vocab/en/LOM_5.3.html" x="150" y="1200" zoom="true"/>
+        <Node id="vocab/en/LOM_1.7.html" x="1900" y="150" zoom="true"/>
+        <Node id="vocab/fr/LOM_6.2.html" x="150" y="450" zoom="true"/>
+        <Node id="vocab/fr/LOM_6.1.html" x="150" y="300" zoom="true"/>
+        <Node id="vocab/en/ISO_8601_2000.html" x="400" y="1050" zoom="true"/>
+        <Node id="vocab/fr/LOM_5.2.html" x="150" y="750" zoom="true"/>
+        <Node id="vocab/fr/LOM_9.1.html" x="650" y="600" zoom="true"/>
+        <Node id="vocab/fr/LOM_5.3.html" x="1650" y="150" zoom="true"/>
+        <Node id="vocab/en/LOM_5.1.html" x="900" y="450" zoom="true"/>
+        <Node id="vocab/fr/LOM_1.7.html" x="900" y="600" zoom="true"/>
+        <Node id="vocab/en/LOM_2.3.1.html" x="150" y="1050" zoom="true"/>
+        <Node id="vocab/fr/LOM_5.8.html" x="1400" y="150" zoom="true"/>
+        <Node id="vocab/en/LOM_4.4.1.2.html" x="900" y="750" zoom="true"/>
+        <Node id="Validator.jsp" x="344" y="7" zoom="true"/>
+        <Node id="vocab/fr/LOM_5.6.html" x="650" y="300" zoom="true"/>
+        <Node id="vocab/en/LOM_5.2.html" x="1650" y="300" zoom="true"/>
+        <Node id="vocab/en/LOM_3.2.1.html" x="650" y="150" zoom="true"/>
+        <Node id="vocab/en/LOM_5.6.html" x="1150" y="300" zoom="true"/>
+        <Node id="vocab/fr/LOM_3.2.1.html" x="400" y="450" zoom="true"/>
+        <Node id="vocab/fr/LOM_5.4.html" x="150" y="900" zoom="true"/>
+        <Node id="vocab/en/LOM_6.1.html" x="1650" y="450" zoom="true"/>
+        <Node id="vocab/fr/LOM_5.1.html" x="400" y="300" zoom="true"/>
+        <Node id="vocab/en/LOM_7.1.html" x="2150" y="150" zoom="true"/>
+        <Node id="vocab/en/ISO_639-1_ISO_639-2_ISO_3166.html" x="1400" y="450" zoom="true"/>
+        <Node id="vocab/en/LOM_6.2.html" x="650" y="900" zoom="true"/>
+        <Node id="vocab/fr/LOM_4.4.1.1.html" x="650" y="450" zoom="true"/>
+        <Node id="vocab/fr/LOM_4.4.1.2.html" x="900" y="150" zoom="true"/>
+        <Node id="vocab/fr/ISO_639-1_ISO_639-2_ISO_3166.html" x="1150" y="450" zoom="true"/>
+        <Node id="vocab/fr/LOM_7.1.html" x="1400" y="300" zoom="true"/>
+        <Node id="vocab/fr/LOM_5.5.html" x="150" y="600" zoom="true"/>
+        <Node id="vocab/en/LOM_4.4.1.1.html" x="1150" y="600" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>
