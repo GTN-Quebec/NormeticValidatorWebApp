@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 public class SessionTimeoutFilter implements Filter {
 
+    @Override
     public void init( FilterConfig filterConfig ) throws ServletException {
     }
 
+    @Override
     public void doFilter( ServletRequest req, ServletResponse resp, FilterChain filterChain ) throws IOException, ServletException {
         if( req instanceof HttpServletRequest && resp instanceof HttpServletResponse ) {
             HttpServletRequest httpReq = (HttpServletRequest)req;
@@ -22,6 +24,8 @@ public class SessionTimeoutFilter implements Filter {
 
             if( isSessionControlRequiredForThisResource( httpReq ) ) {
                 if( isSessionInvalid( httpReq ) ) {
+                    // create a new session
+                    httpReq.getSession(true);
                     String timeoutUrl = httpReq.getContextPath() + "/" + getTimeoutPage();
                     //System.out.println( "Session expired.  Redirect to " + timeoutUrl );
                     httpResp.sendRedirect( timeoutUrl );
@@ -56,6 +60,6 @@ public class SessionTimeoutFilter implements Filter {
     public void destroy() {
     }
 
-    private static final String timeoutPage = "ExpiredSession.jsp";
+    private static final String timeoutPage = "";
 
 }

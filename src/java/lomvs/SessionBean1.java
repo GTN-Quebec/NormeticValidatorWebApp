@@ -9,10 +9,12 @@ import java.io.BufferedReader;
 import java.io.StringReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.ResourceBundle;
-import com.sun.rave.web.ui.appbase.AbstractSessionBean;
-import com.sun.data.provider.impl.ObjectListDataProvider;
-import javax.faces.FacesException;
+import org.apache.myfaces.custom.fileupload.UploadedFile;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
+import javax.faces.context.FacesContext;
 import ca.licef.validator.ValidationIssue;
 import ca.licef.validator.ValidationReport;
 
@@ -29,114 +31,19 @@ import ca.licef.validator.ValidationReport;
  *
  * @author jcano
  */
-public class SessionBean1 extends AbstractSessionBean {
-    // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
-    /**
-     * <p>Automatically managed component initialization.  <strong>WARNING:</strong>
-     * This method is automatically generated, so any user-specified code inserted
-     * here is subject to being replaced.</p>
-     */
-    private void _init() throws Exception {
-    }
-    // </editor-fold>
-    /**
-     * <p>Construct a new session data bean instance.</p>
-     */
+public class SessionBean1 {
+
     public SessionBean1() {
     }
 
-    /**
-     * <p>This method is called when this bean is initially added to
-     * session scope.  Typically, this occurs as a result of evaluating
-     * a value binding or method binding expression, which utilizes the
-     * managed bean facility to instantiate this bean and store it into
-     * session scope.</p>
-     * 
-     * <p>You may customize this method to initialize and cache data values
-     * or resources that are required for the lifetime of a particular
-     * user session.</p>
-     */
-    @Override
-    public void init() {
-        // Perform initializations inherited from our superclass
-        super.init();
-        // Perform application initialization that must complete
-        // *before* managed components are initialized
-        // TODO - add your own initialiation code here
-
-        // <editor-fold defaultstate="collapsed" desc="Managed Component Initialization">
-        // Initialize automatically managed components
-        // *Note* - this logic should NOT be modified
-        try {
-            _init();
-        } catch (Exception e) {
-            log("SessionBean1 Initialization Failure", e);
-            throw e instanceof FacesException ? (FacesException) e : new FacesException(e);
-        }
-
-    // </editor-fold>
-    // Perform application initialization that must complete
-    // *after* managed components are initialized
-    // TODO - add your own initialization code here
-
-    }
-
-    /**
-     * <p>This method is called when the session containing it is about to be
-     * passivated.  Typically, this occurs in a distributed servlet container
-     * when the session is about to be transferred to a different
-     * container instance, after which the <code>activate()</code> method
-     * will be called to indicate that the transfer is complete.</p>
-     * 
-     * <p>You may customize this method to release references to session data
-     * or resources that can not be serialized with the session itself.</p>
-     */
-    @Override
-    public void passivate() {
-    }
-
-    /**
-     * <p>This method is called when the session containing it was
-     * reactivated.</p>
-     * 
-     * <p>You may customize this method to reacquire references to session
-     * data or resources that could not be serialized with the
-     * session itself.</p>
-     */
-    @Override
-    public void activate() {
-    }
-
-    /**
-     * <p>This method is called when this bean is removed from
-     * session scope.  Typically, this occurs as a result of
-     * the session timing out or being terminated by the application.</p>
-     * 
-     * <p>You may customize this method to clean up resources allocated
-     * during the execution of the <code>init()</code> method, or
-     * at any later time during the lifetime of the application.</p>
-     */
-    @Override
-    public void destroy() {
-    }
-
-    /**
-     * <p>Return a reference to the scoped data bean.</p>
-     *
-     * @return reference to the scoped data bean
-     */
-    protected ApplicationBean1 getApplicationBean1() {
-        return (ApplicationBean1) getBean("ApplicationBean1");
-    }
-
-    // </editor-fold>
     public void setReport(ValidationReport report) {
-        ResourceBundle bundle = ResourceBundle.getBundle( "lomvs.Bundle", getApplicationBean1().getLocale() );
+        Locale locale = FacesContext.getCurrentInstance().getApplication().getDefaultLocale();
+        ResourceBundle bundle = ResourceBundle.getBundle( "lomvs.Bundle", locale );
         this.report = report;
         this.hasAtLeastOneHelpReference = false;
         this.hasAtLeastOneLexicalScopeReference = false;
         ValidationIssue[] issues = report.getIssues();
-        ArrayList errorList = new ArrayList(issues.length);
+        ArrayList<ErrorEntry> errorList = new ArrayList<ErrorEntry>(issues.length);
         for (int i = 0; i < issues.length; i++) {
             ErrorEntry entry = new ErrorEntry(issues[i],bundle);
             errorList.add( entry );
@@ -145,7 +52,23 @@ public class SessionBean1 extends AbstractSessionBean {
             if( !hasAtLeastOneLexicalScopeReference && entry.isLexicalScopeReferenceAvailable() )
                 hasAtLeastOneLexicalScopeReference = true;
         }
-        this.errorListDataProvider.setList(errorList);
+        this.errorListDataProvider = new ListDataModel(errorList);
+        if( report.getFatalErrorCount() > 0 || report.getErrorCount() > 0 ) {
+            this.verdict = "Error";
+            this.verdictSummary = bundle.getString( "verdictSummaryError" );
+            this.verdictDetail = bundle.getString( "verdictDetailError" );
+        } else if ( report.getWarningCount() > 0) {
+            this.verdict = "Warning";
+            this.verdictSummary = bundle.getString( "verdictSummaryWarning" );
+            this.verdictDetail = bundle.getString( "verdictDetailWarning" );
+        } else {
+            this.verdict = "Success";
+            this.verdictSummary = bundle.getString( "verdictSummarySuccess" );
+            this.verdictDetail = bundle.getString( "verdictDetailSuccess" );
+        }
+        this.issuesCount = report.getErrorCount() + report.getFatalErrorCount();
+        if (this.isShowRecommendationsEnabled())
+            this.issuesCount += report.getWarningCount();
     }
 
     public ValidationReport getReport() {
@@ -156,36 +79,7 @@ public class SessionBean1 extends AbstractSessionBean {
         return (this.report.toString());
     }
 
-    public String getVerdictType() {
-        if( report.getFatalErrorCount() > 0 || report.getErrorCount() > 0 )
-            return( "error" );
-        else if( report.getWarningCount() > 0 )
-            return( "warning" );
-        else
-            return( "success" );
-    }
-
-    public String getVerdictSummary() {
-        ResourceBundle bundle = ResourceBundle.getBundle( "lomvs.Bundle", getApplicationBean1().getLocale() );
-        if( report.getFatalErrorCount() > 0 || report.getErrorCount() > 0 )
-            return( bundle.getString( "verdictSummaryError" ) );
-        else if( report.getWarningCount() > 0 )
-            return( bundle.getString( "verdictSummaryWarning" ) );
-        else
-            return( bundle.getString( "verdictSummarySuccess" ) );
-    }
-
-    public String getVerdictDetail() {
-        ResourceBundle bundle = ResourceBundle.getBundle( "lomvs.Bundle", getApplicationBean1().getLocale() );
-        if( report.getFatalErrorCount() > 0 || report.getErrorCount() > 0 )
-            return( bundle.getString( "verdictDetailError" ) );
-        else if( report.getWarningCount() > 0 )
-            return( bundle.getString( "verdictDetailWarning" ) );
-        else
-            return( bundle.getString( "verdictDetailSuccess" ) );
-    }
-
-    public ObjectListDataProvider getIssues() {
+    public DataModel getIssues() {
         return (this.errorListDataProvider);
     }
 
@@ -205,13 +99,17 @@ public class SessionBean1 extends AbstractSessionBean {
         this.directInputLomString = lomString;
     }
 
-    public String getValidatedLomString() {
-        return (validatedLomString);
+    public String getUploadedLomString() {
+        return uploadedLomString;
+    }
+
+    public void setUploadedLomString(String uploadedLomString) {
+        this.uploadedLomString = uploadedLomString;
     }
 
     public String getDecoratedValidatedString() {
         StringBuilder str = new StringBuilder();
-        BufferedReader reader = new BufferedReader( new StringReader( validatedLomString ) );
+        BufferedReader reader = new BufferedReader( new StringReader( getLomString() ) );
         try {
             for( int lineNumber = 1;; lineNumber++ ) {
                 String line = reader.readLine();
@@ -233,15 +131,11 @@ public class SessionBean1 extends AbstractSessionBean {
         return( str.toString() );
     }
 
-    public void setValidatedLomString(String lomString) {
-        this.validatedLomString = lomString;
-    }
-
-    public String getSelectedTab() {
+    public int getSelectedTab() {
          return this.selectedTab;
     }
     
-    public  void setSelectedTab(String tab) {
+    public  void setSelectedTab(int tab) {
         this.selectedTab = tab;
     }
 
@@ -253,22 +147,53 @@ public class SessionBean1 extends AbstractSessionBean {
         return( hasAtLeastOneLexicalScopeReference );
     }
 
-    public void setUploadedLomFilename( String filename ) {
-        this.uploadedLomFilename = filename;
+    public UploadedFile getUploadedLomFile() {
+        return uploadedLomFile;
     }
 
-    public String getUploadedLomFilename() {
-        return( this.uploadedLomFilename );
+    public void setUploadedLomFile(UploadedFile uploadedLomFile) {
+        this.uploadedLomFile = uploadedLomFile;
+    }
+
+    public String getLomString() {
+        if (uploadedLomFile == null) {
+            return directInputLomString;
+        } else {
+            return uploadedLomString;
+        }
+    }
+
+    public int getIssuesCount() {
+        return issuesCount;
+    }
+
+    public boolean isHasIssues() {
+        return issuesCount > 0;
+    }
+
+    public String getVerdict() {
+        return verdict;
+    }
+
+    public String getVerdictDetail() {
+        return verdictDetail;
+    }
+
+    public String getVerdictSummary() {
+        return verdictSummary;
     }
 
     private ValidationReport report;
     private boolean hasAtLeastOneHelpReference;
     private boolean hasAtLeastOneLexicalScopeReference;
-    private ObjectListDataProvider errorListDataProvider = new ObjectListDataProvider();
+    private DataModel errorListDataProvider = new ListDataModel();
     private String directInputLomString = "";
-    private String validatedLomString = "";
-    private String selectedTab = "tabUpload";
+    private String uploadedLomString = "";
+    private int selectedTab = 0;
+    private int issuesCount = 0;
     private boolean isShowRecommendationsEnabled = true;
-    private String uploadedLomFilename;
-    
+    private UploadedFile uploadedLomFile;
+    private String verdict;
+    private String verdictSummary;
+    private String verdictDetail;
 }

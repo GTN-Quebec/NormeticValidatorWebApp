@@ -10,7 +10,7 @@ public class ErrorEntry implements Serializable {
     public ErrorEntry( ValidationIssue error, ResourceBundle bundle ) {
         this.error = error;
         this.bundle = bundle;
-        this.severityIcon = ( error.getSeverity() == ValidationIssue.Severity.WARNING ? "ALERT_DEGRADED_LARGE" : "ALERT_ERROR_LARGE" );
+        this.severityIcon = ( error.getSeverity() == ValidationIssue.Severity.WARNING ? "Warning.gif" : "Error.gif" );
         if( error.getLine() != -1 && error.getColumn() != -1 ) {
             MessageFormat formatter = new MessageFormat( bundle.getString( "errorLocation" ) );
             String line = error.getLine() + "";

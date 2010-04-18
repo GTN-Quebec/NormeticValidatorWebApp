@@ -21,43 +21,37 @@
         <param-value>http://www.normetic.org/IMG/pdf_LD_C1_v1_2.pdf|http://www.normetic.org/IMG/pdf_LD_C2_v1_2.pdf|http://www.normetic.org/IMG/pdf_LD_C3_v1_2.pdf|http://www.normetic.org/IMG/pdf_LD_C4_v1_2.pdf|http://www.normetic.org/IMG/pdf_LD_Categorie_5.pdf|http://www.normetic.org/IMG/pdf_LD_C6_v1_2.pdf|http://www.normetic.org/IMG/pdf_LD_C7_v1_2.pdf|http://www.normetic.org/IMG/pdf_LD_C8_v1_2.pdf|http://www.normetic.org/IMG/pdf_LD_C9_v1_2-2.pdf</param-value>
     </context-param>
     <filter>
-        <filter-name>UploadFilter</filter-name>
-        <filter-class>com.sun.webui.jsf.util.UploadFilter</filter-class>
+        <filter-name>FacesExtensionsFilter</filter-name>
+        <filter-class>org.apache.myfaces.webapp.filter.ExtensionsFilter</filter-class>
         <init-param>
-            <description>The maximum allowed upload size in bytes.  If this is set to a negative value, there is no maximum.  The default value is 1000000.</description>
-            <param-name>maxSize</param-name>
+            <param-name>uploadMaxFileSize</param-name>
             <param-value>1000000</param-value>
         </init-param>
-        <init-param>
-            <description>The size (in bytes) of an uploaded file which, if it is exceeded, will cause the file to be written directly to disk instead of stored in memory.  Files smaller than or equal to this size will be stored in memory.  The default value is 4096.</description>
-            <param-name>sizeThreshold</param-name>
-            <param-value>4096</param-value>
-        </init-param>
     </filter>
+    <filter-mapping>
+        <filter-name>FacesExtensionsFilter</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>FacesExtensionsFilter</filter-name>
+        <url-pattern>/faces/myFacesExtensionResource/*</url-pattern>
+    </filter-mapping>
     <filter>
         <filter-name>SessionTimeoutFilter</filter-name>
         <filter-class>lomvs.SessionTimeoutFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>UploadFilter</filter-name>
-        <servlet-name>Faces Servlet</servlet-name>
-    </filter-mapping>
-    <filter-mapping>
         <filter-name>SessionTimeoutFilter</filter-name>
         <servlet-name>Faces Servlet</servlet-name>
-    </filter-mapping> 
+    </filter-mapping>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-        <init-param>
-            <param-name>javax.faces.LIFECYCLE_ID</param-name>
-            <param-value>com.sun.faces.lifecycle.PARTIAL</param-value>
-        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    <servlet>
+    <!-- servlet>
         <servlet-name>ExceptionHandlerServlet</servlet-name>
-        <servlet-class>com.sun.errorhandler.ExceptionHandler</servlet-class>
+        <servlet-class>javax.faces.context.ExceptionHandler</servlet-class>
         <init-param>
             <param-name>errorHost</param-name>
             <param-value>localhost</param-value>
@@ -66,34 +60,26 @@
             <param-name>errorPort</param-name>
             <param-value>24444</param-value>
         </init-param>
-    </servlet>
+    </servlet -->
     <servlet>
-        <servlet-name>ThemeServlet</servlet-name>
-        <servlet-class>com.sun.webui.theme.ThemeServlet</servlet-class>
+        <servlet-name>ValidationService</servlet-name>
+        <servlet-class>lomvs.ValidationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
+    <!-- servlet-mapping>
         <servlet-name>ExceptionHandlerServlet</servlet-name>
         <url-pattern>/error/ExceptionHandler</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ThemeServlet</servlet-name>
-        <url-pattern>/theme/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ExceptionHandlerServlet</servlet-name>
-        <url-pattern>/error/ExceptionHandler</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ThemeServlet</servlet-name>
-        <url-pattern>/theme/*</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping -->
     <listener>
         <listener-class>lomvs.SessionCleaner</listener-class>
     </listener>
+    <servlet-mapping>
+        <servlet-name>ValidationService</servlet-name>
+        <url-pattern>/service</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -101,7 +87,7 @@
     </session-config>
     <welcome-file-list>
         <welcome-file>faces/Validator.jsp</welcome-file>
-        </welcome-file-list>
+    </welcome-file-list>
     <error-page>
         <exception-type>javax.servlet.ServletException</exception-type>
         <location>/error/ExceptionHandler</location>
@@ -115,10 +101,6 @@
         <location>/error/ExceptionHandler</location>
     </error-page>
     <error-page>
-        <exception-type>com.sun.rave.web.ui.appbase.ApplicationException</exception-type>
-        <location>/error/ExceptionHandler</location>
-    </error-page>
-    <error-page>
         <exception-type>javax.servlet.ServletException</exception-type>
         <location>/error/ExceptionHandler</location>
     </error-page>
@@ -128,10 +110,6 @@
     </error-page>
     <error-page>
         <exception-type>javax.faces.FacesException</exception-type>
-        <location>/error/ExceptionHandler</location>
-    </error-page>
-    <error-page>
-        <exception-type>com.sun.rave.web.ui.appbase.ApplicationException</exception-type>
         <location>/error/ExceptionHandler</location>
     </error-page>
     <jsp-config>
