@@ -25,8 +25,62 @@
         <dl>
           <xsl:apply-templates select="v:term"/>
         </dl>
+        <br />
+        <hr />
+        <br />
+        <style type="text/css">
+          td {padding-right:1em;}
+        </style>
+        <xsl:choose>
+          <xsl:when test="$lang='fr'">
+            <table>
+              <th>
+                <td colspan="2">Légende</td>
+              </th>
+              <tr>
+                <td>
+                  <code>identifiant</code>
+                </td>
+                <td style="font-size:smaller;">à employer dans le xml</td>
+              </tr>
+              <tr>
+                <td>
+                  <em>terme</em>
+                </td>
+                <td style="font-size:smaller;">si distinct de l'identifiant</td>
+              </tr>
+              <tr>
+                <td>définition</td>
+                <td style="font-size:smaller;">corps normal, en retrait</td>
+              </tr>
+            </table>
+          </xsl:when>
+          <xsl:when test="$lang='en'">
+            <table>
+              <th>
+                <td colspan="2">Legend</td>
+              </th>
+              <tr>
+                <td>
+                  <code>identifier</code>
+                </td>
+                <td style="font-size:smaller;">to use in the xml</td>
+              </tr>
+              <tr>
+                <td>
+                  <em>term</em>
+                </td>
+                <td style="font-size:smaller;">if distinct from the identifier</td>
+              </tr>
+              <tr>
+                <td>définition</td>
+                <td style="font-size:smaller;">normal typeface, indented</td>
+              </tr>
+            </table>
+          </xsl:when>
+        </xsl:choose>
       </body>
-    </html>      
+    </html>
   </xsl:template>
 
   <xsl:template name="title">

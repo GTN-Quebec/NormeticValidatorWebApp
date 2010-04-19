@@ -24,6 +24,7 @@ files = {
 }
 
 eureka = 'http://eureka.ntic.org/vdex/'
+#eureka = 'file:web/vocab/xml/'
 
 xsl=XSLT(parse('describe_vcard.xslt'))
 
