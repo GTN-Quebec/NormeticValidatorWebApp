@@ -6,6 +6,7 @@
   <xsl:output method="html"/>
   <xsl:param name="lang"/>
   <xsl:param name="fieldnum"/>
+  <xsl:param name="voc_source"/>
 
   <xsl:template match="v:vdex">
     <html>
@@ -22,6 +23,9 @@
         <h2>
           <xsl:apply-templates select="v:vocabName"/>
         </h2>
+        <xsl:if test="$voc_source != ''">
+          <h2>Source: <code><xsl:value-of select="$voc_source"/></code></h2>
+        </xsl:if>
         <dl>
           <xsl:apply-templates select="v:term"/>
         </dl>
