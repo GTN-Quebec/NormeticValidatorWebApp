@@ -83,10 +83,10 @@
                             <h:panelGrid id="groupPanelLexicalScope" rendered="#{currentRow.lexicalScopeReferenceAvailable}" ><!-- separator="&lt;br/&gt;" -->
                                 <h:outputText id="staticTextLexicalScopeHeader" value="#{msg.lexicalScopeHeader}"/>
                                 <h:outputLink id="imageHyperlinkLexicalScope"
-                                              target="_blank" value="#{currentRow.lexicalScopeReferenceLink}">
+                                              target="_blank" value="#{request.contextPath}#{currentRow.lexicalScopeReferenceLink}">
                                     <h:graphicImage height="52" url="/resources/img/LexicalScopeIcon.gif" width="52"/>
                                 </h:outputLink>
-                                <h:outputLink id="hyperlinkLexicalScope" target="_blank" value="#{currentRow.lexicalScopeReferenceLink}">
+                                <h:outputLink id="hyperlinkLexicalScope" target="_blank" value="#{request.contextPath}#{currentRow.lexicalScopeReferenceLink}">
                                     <h:outputText value="#{currentRow.lexicalScopeReference}"/>
                                 </h:outputLink>
                             </h:panelGrid>
