@@ -15,7 +15,7 @@ files = {
 '5.3': 'LOMv1.0_element_5_3_interactivity_level_voc.xml',
 '5.4': 'LOMv1.0_element_5_4_semantic_density_voc.xml',
 '5.5': 'LOMv1.0_element_5_5_intended_end_user_role_voc.xml',
-'5.6': 'NORMETICv1.2_element_5_6_contexte_voc.xml',
+'5.6': 'NORMETICv1.0_element_5_6_contexte_voc.xml',
 '5.8': 'LOMv1.0_element_5_8_difficulty_voc.xml',
 '6.1': 'LOMv1.0_common_yes_no_voc.xml',
 '6.2': 'NORMETICv1.0_element_6_2_copyright_et_autres_restrictions_voc.xml',
@@ -25,7 +25,7 @@ files = {
 
 vocabularies = {
 '5.2': 'http://www.normetic.org/vdex/typeressourcev1_2.xml',
-'5.6': 'http://eureka.ntic.org/vdex/NORMETICv1.2_element_5_6_contexte_voc.xml',
+'5.6': 'http://eureka.ntic.org/vdex/NORMETICv1.0_element_5_6_contexte_voc.xml',
 '6.2': 'http://eureka.ntic.org/vdex/NORMETICv1.0_element_6_2_copyright_et_autres_restrictions_voc.xml',
 }
 
